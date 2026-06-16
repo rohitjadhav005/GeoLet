@@ -180,8 +180,6 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
         
         {/* Navigation */}
         <div className="sidebar-section" style={{ padding: "24px 24px 10px" }}>
-          {!isCollapsed && <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.1em", marginBottom: 16, padding: "0" }}>GLOBAL STATUS</div>}
-          {!isCollapsed && <div className="sidebar-section-label">MISSION CONTROL</div>}
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
             {/* Dashboard Wrapper */}
             <div style={{ 
