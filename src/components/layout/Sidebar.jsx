@@ -102,6 +102,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
   const navigate = useNavigate();
   const location = useLocation();
   const [time, setTime] = useState(new Date());
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const t = setInterval(() => setTime(new Date()), 1000);
@@ -142,13 +143,21 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
     if (onCloseMobile) onCloseMobile();
   };
 
+  const isShownExpanded = !isCollapsed || isHovered;
+
   return (
-    <aside className="sidebar">
+    <aside 
+      className={`sidebar ${isHovered ? "hovered" : ""}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {/* Brand Header */}
-      <div className="sidebar-brand" style={{ padding: "24px 24px 20px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div className="sidebar-brand" style={{ padding: !isShownExpanded ? "24px 16px 20px" : "24px 24px 20px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexDirection: !isShownExpanded ? "column" : "row", gap: !isShownExpanded ? 12 : 0 }}>
           <div className="sidebar-logo-row" style={{ marginBottom: 0 }}>
-            {!isCollapsed && (
+            {!isShownExpanded ? (
+              <div style={{ fontSize: 20, fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>G</div>
+            ) : (
               <div>
                 <div style={{ fontSize: 20, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "-0.5px", lineHeight: 1.1 }}>GeoLet</div>
                 <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 4 }}>Global Analytics</div>
@@ -156,8 +165,8 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
             )}
           </div>
           
-          {/* Theme Toggle */}
-          {!isCollapsed && (
+          <div style={{ display: "flex", gap: 8, flexDirection: !isShownExpanded ? "column" : "row", alignItems: "center" }}>
+            {/* Theme Toggle */}
             <button 
               onClick={onToggleTheme} 
               style={{
@@ -172,7 +181,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg>
               )}
             </button>
-          )}
+          </div>
         </div>
       </div>
 
@@ -193,10 +202,10 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                   key={item.id}
                   className={`sidebar-nav-item ${isNavActive(item.path) ? "active" : ""}`}
                   onClick={() => handleNavClick(item.path)}
-                  title={isCollapsed ? item.label : undefined}
+                  title={isCollapsed && !isHovered ? item.label : undefined}
                 >
                   <span className="sidebar-nav-icon">{item.icon}</span>
-                  {!isCollapsed && <span>{item.label}</span>}
+                  {isShownExpanded && <span>{item.label}</span>}
                 </div>
               ))}
 
@@ -206,10 +215,10 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                     key={item.id}
                     className={`sidebar-nav-item ${isNavActive(item.path) ? "active" : ""}`}
                     onClick={() => handleNavClick(item.path)}
-                    title={isCollapsed ? item.label : undefined}
+                    title={isCollapsed && !isHovered ? item.label : undefined}
                   >
                     <span className="sidebar-nav-icon" style={{ width: 16, height: 16 }}>{item.icon}</span>
-                    {!isCollapsed && <span>{item.label}</span>}
+                    {isShownExpanded && <span>{item.label}</span>}
                   </div>
                 ))}
               </div>
@@ -221,10 +230,10 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                 key={item.id}
                 className={`sidebar-nav-item ${isNavActive(item.path) ? "active" : ""}`}
                 onClick={() => handleNavClick(item.path)}
-                title={isCollapsed ? item.label : undefined}
+                title={isCollapsed && !isHovered ? item.label : undefined}
               >
                 <span className="sidebar-nav-icon">{item.icon}</span>
-                {!isCollapsed && <span>{item.label}</span>}
+                {isShownExpanded && <span>{item.label}</span>}
               </div>
             ))}
           </div>
@@ -233,7 +242,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
         <div className="sidebar-divider" style={{ margin: "16px 24px" }} />
 
         {/* Active Conflict Zones */}
-        {!isCollapsed && (
+        {isShownExpanded && (
           <div className="sidebar-section" style={{ padding: "0 24px" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 16 }}>
               <div className="sidebar-section-label" style={{ padding: 0, margin: 0 }}>CONFLICT WATCHLIST</div>
@@ -261,8 +270,18 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                   <div style={{ fontSize: 12, marginTop: 1, fontWeight: 600, color: "var(--text-muted)", letterSpacing: "0.05em" }}>{countryCodes[conflict.country] || "WW"}</div>
                   <div style={{ flex: 1 }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 2 }}>
-                      <div style={{ fontSize: 13, fontWeight: 600, color: "var(--text-primary)" }}>{conflict.country}</div>
-                      <div style={{ width: 6, height: 6, borderRadius: "50%", background: severityColors[conflict.severity] }} />
+                      <div style={{ 
+                        fontSize: 13, 
+                        fontWeight: 600, 
+                        color: "var(--text-primary)",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        marginRight: 8
+                      }} title={conflict.country}>
+                        {conflict.country}
+                      </div>
+                      <div style={{ width: 6, height: 6, borderRadius: "50%", background: severityColors[conflict.severity], flexShrink: 0 }} />
                     </div>
                     <div style={{ fontSize: 10, color: "var(--text-muted)", fontWeight: 500 }}>Last Updated: {(i % 10) + 1}m ago</div>
                   </div>
@@ -276,7 +295,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
 
       {/* Bottom Status Area */}
       <div className="sidebar-bottom" style={{ padding: "24px", background: "transparent", display: "flex", flexDirection: "column", gap: 16 }}>
-        {!isCollapsed && (
+        {isShownExpanded && (
           <>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>

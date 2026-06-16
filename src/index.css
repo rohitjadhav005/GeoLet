@@ -160,6 +160,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 72px;
 }
 
+.sidebar-collapsed .sidebar:hover {
+  width: 240px;
+  box-shadow: var(--shadow-lg);
+}
+
 /* Brand */
 .sidebar-brand {
   padding: 22px 20px 18px;
@@ -1501,6 +1506,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   .main-content {
     margin-left: 220px;
+  }
+  .sidebar-collapsed .sidebar {
+    width: 72px;
+  }
+  .sidebar-collapsed .main-content {
+    margin-left: 104px;
   }
   .routes-grid {
     grid-template-columns: 1fr;
