@@ -86,7 +86,7 @@ export default function FuelPriceChart() {
   const isPositive = parseFloat(info.change) >= 0;
 
   return (
-    <div className="panel">
+    <div className="panel card-business">
       <div className="panel-header">
         <div>
           <div className="panel-title">Fuel Price Trends</div>

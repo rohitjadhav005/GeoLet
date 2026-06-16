@@ -31,7 +31,7 @@ export default function NewsCenter() {
         ) : news ? (
           <div style={{ textAlign: "left", display: "grid", gap: "16px" }}>
             {news.articles.map(article => (
-              <div key={article.id} className="panel" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div key={article.id} className="panel card-business" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "8px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span style={{ fontSize: "12px", color: "var(--text-secondary)", textTransform: "uppercase", fontWeight: "bold" }}>{article.source}</span>
                   <span style={{ 

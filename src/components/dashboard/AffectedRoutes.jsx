@@ -8,7 +8,7 @@ const statusColors = {
 
 export default function AffectedRoutes() {
   return (
-    <div className="panel">
+    <div className="panel card-business">
       <div className="panel-header">
         <div>
           <div className="panel-title">Disrupted Shipping Routes</div>

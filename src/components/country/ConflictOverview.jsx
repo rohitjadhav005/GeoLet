@@ -7,12 +7,12 @@ export default function ConflictOverview({ conflict }) {
       </div>
 
       <div className="conflict-overview-grid">
-        <div className="overview-card">
+        <div className="overview-card card-business">
           <h3 className="overview-card-title">About the Conflict</h3>
           <p className="overview-description">{conflict.description}</p>
         </div>
 
-        <div className="overview-card">
+        <div className="overview-card card-business">
           {[
             { label: "Conflict Type", value: conflict.conflictType },
             { label: "Start Date", value: conflict.startDate },
