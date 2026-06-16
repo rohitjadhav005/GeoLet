@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 export default function NewsCenter() {
+  useScrollReveal();
   const [news, setNews] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -19,7 +21,7 @@ export default function NewsCenter() {
 
   return (
     <div className="dashboard-content">
-      <div className="page-header">
+      <div className="page-header reveal-left">
         <div>
           <h1 className="page-title">News Center</h1>
           <p className="page-subtitle">Curated intelligence feeds and geopolitical event tracking.</p>
@@ -31,7 +33,7 @@ export default function NewsCenter() {
         ) : news ? (
           <div style={{ textAlign: "left", display: "grid", gap: "16px" }}>
             {news.articles.map(article => (
-              <div key={article.id} className="panel card-business" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "8px" }}>
+              <div key={article.id} className="panel card-business reveal-up" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "8px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span style={{ fontSize: "12px", color: "var(--text-secondary)", textTransform: "uppercase", fontWeight: "bold" }}>{article.source}</span>
                   <span style={{ 

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 export default function EnergyMonitor() {
+  useScrollReveal();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -19,7 +21,7 @@ export default function EnergyMonitor() {
 
   return (
     <div className="dashboard-content">
-      <div className="page-header">
+      <div className="page-header reveal-left">
         <div>
           <h1 className="page-title">Energy Monitor</h1>
           <p className="page-subtitle">Real-time global energy supply, pipeline statuses, and market pricing.</p>
@@ -30,14 +32,14 @@ export default function EnergyMonitor() {
           <p>Loading energy data from Python backend...</p>
         ) : data ? (
           <div style={{ textAlign: "left", display: "grid", gap: "20px" }}>
-            <div className="panel card-business" style={{ padding: "20px" }}>
+            <div className="panel card-business reveal-up delay-100" style={{ padding: "20px" }}>
               <h2 style={{ color: "var(--text-primary)" }}>Status: {data.status}</h2>
               <p>Global Supply Level: {data.global_supply}%</p>
               <h3 style={{ marginTop: "20px" }}>Market Pricing</h3>
               <p>Brent Crude: ${data.market_pricing.brent_crude}</p>
               <p>Natural Gas: ${data.market_pricing.natural_gas}</p>
             </div>
-            <div className="panel card-business" style={{ padding: "20px" }}>
+            <div className="panel card-business reveal-up delay-200" style={{ padding: "20px" }}>
               <h3 style={{ color: "var(--text-primary)" }}>Pipelines</h3>
               <ul style={{ listStyle: "none", padding: 0 }}>
                 {data.pipelines.map(pipe => (

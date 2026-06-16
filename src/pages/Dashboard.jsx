@@ -7,11 +7,13 @@ import { shippingRoutes } from "../data/shippingRoutes";
 
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import useScrollReveal from "../hooks/useScrollReveal";
 
 const disruptedRoutes = shippingRoutes.filter((r) => r.status === "critical" || r.status === "high").length;
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  useScrollReveal();
 
   useEffect(() => {
     const ids = ["overview", "map", "trade", "routes"];
@@ -33,7 +35,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-content">
-      <div className="page-header">
+      <div className="page-header reveal-left">
         <div>
           <h1 className="page-title">Global Dashboard</h1>
           <p className="page-subtitle">Real-time overview of active conflicts and trade disruptions.</p>
@@ -41,7 +43,7 @@ export default function Dashboard() {
       </div>
 
       {/* KPI Cards */}
-      <div className="stat-grid" id="overview">
+      <div className="stat-grid reveal-up delay-100" id="overview">
         <StatCard
           label="Active Conflict Zones"
           value={activeConflictCount}
@@ -78,7 +80,7 @@ export default function Dashboard() {
       </div>
 
       {/* Bottom Panels */}
-      <div className="bottom-panels" id="trade">
+      <div className="bottom-panels reveal-up delay-200" id="trade">
         <FuelPriceChart />
         <div id="routes">
           <AffectedRoutes />

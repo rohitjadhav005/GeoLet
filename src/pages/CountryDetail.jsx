@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import useScrollReveal from "../hooks/useScrollReveal";
 import { conflictsByCountry } from "../data/conflicts";
 import ConflictOverview from "../components/country/ConflictOverview";
 import AffectedProducts from "../components/country/AffectedProducts";
@@ -25,6 +26,7 @@ const severityLabels = {
 };
 
 export default function CountryDetail() {
+  useScrollReveal();
   const { id } = useParams();
   const navigate = useNavigate();
   const conflict = conflictsByCountry[id];
@@ -192,12 +194,12 @@ export default function CountryDetail() {
 
       {/* Scrollable Sections */}
       <div className="detail-sections">
-        <ConflictOverview conflict={conflict} />
-        <AffectedProducts products={conflict.affectedProducts} />
-        <TradeImpact tradeData={conflict.tradeImpact} />
-        <ImportingCountries countries={conflict.importingCountries} />
-        <ShippingRoutes routes={conflict.shippingRoutes} />
-        <HumanitarianImpact humanitarian={conflict.humanitarian} />
+        <div className="reveal-up delay-100"><ConflictOverview conflict={conflict} /></div>
+        <div className="reveal-up delay-200"><AffectedProducts products={conflict.affectedProducts} /></div>
+        <div className="reveal-up delay-300"><TradeImpact tradeData={conflict.tradeImpact} /></div>
+        <div className="reveal-up delay-100"><ImportingCountries countries={conflict.importingCountries} /></div>
+        <div className="reveal-up delay-200"><ShippingRoutes routes={conflict.shippingRoutes} /></div>
+        <div className="reveal-up delay-300"><HumanitarianImpact humanitarian={conflict.humanitarian} /></div>
       </div>
     </div>
   );
