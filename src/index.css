@@ -267,8 +267,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-radius: 12px;
   cursor: pointer;
   transition: color 0.15s ease, background-color 0.15s ease;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--text-secondary);
   position: relative;
   margin-bottom: 2px;
@@ -281,7 +282,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .sidebar-nav-item.active {
   background: transparent;
-  color: var(--text-primary);
+  color: var(--accent);
   font-weight: 700;
 }
 

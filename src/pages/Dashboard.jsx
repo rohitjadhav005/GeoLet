@@ -5,9 +5,32 @@ import AffectedRoutes from "../components/dashboard/AffectedRoutes";
 import { activeConflictCount, totalOilAffected, totalPeopleInNeed } from "../data/conflicts";
 import { shippingRoutes } from "../data/shippingRoutes";
 
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 const disruptedRoutes = shippingRoutes.filter((r) => r.status === "critical" || r.status === "high").length;
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const ids = ["overview", "map", "trade", "routes"];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navigate(`/#${entry.target.id}`, { replace: true });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [navigate]);
+
   return (
     <div className="dashboard-content">
       <div className="page-header">
@@ -18,7 +41,7 @@ export default function Dashboard() {
       </div>
 
       {/* KPI Cards */}
-      <div className="stat-grid">
+      <div className="stat-grid" id="overview">
         <StatCard
           label="Active Conflict Zones"
           value={activeConflictCount}
