@@ -143,7 +143,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
   };
 
   return (
-    <aside className="sidebar card-fun">
+    <aside className="sidebar">
       {/* Brand Header */}
       <div className="sidebar-brand" style={{ padding: "24px 20px 20px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
