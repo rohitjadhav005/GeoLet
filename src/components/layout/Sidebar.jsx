@@ -207,7 +207,6 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                     className={`sidebar-nav-item ${isNavActive(item.path) ? "active" : ""}`}
                     onClick={() => handleNavClick(item.path)}
                     title={isCollapsed ? item.label : undefined}
-                    style={{ fontSize: 14, padding: "6px 10px", marginBottom: 0 }}
                   >
                     <span className="sidebar-nav-icon" style={{ width: 16, height: 16 }}>{item.icon}</span>
                     {!isCollapsed && <span>{item.label}</span>}
@@ -259,13 +258,13 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                     border: "1px solid transparent"
                   }}
                 >
-                  <div style={{ fontSize: 11, marginTop: 1, fontWeight: 700, color: "var(--text-muted)" }}>{countryCodes[conflict.country] || "WW"}</div>
+                  <div style={{ fontSize: 12, marginTop: 1, fontWeight: 600, color: "var(--text-muted)", letterSpacing: "0.05em" }}>{countryCodes[conflict.country] || "WW"}</div>
                   <div style={{ flex: 1 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
-                      <div style={{ fontSize: 13, fontWeight: 500, color: "var(--text-primary)" }}>{conflict.country}</div>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 2 }}>
+                      <div style={{ fontSize: 13, fontWeight: 600, color: "var(--text-primary)" }}>{conflict.country}</div>
                       <div style={{ width: 6, height: 6, borderRadius: "50%", background: severityColors[conflict.severity] }} />
                     </div>
-                    <div style={{ fontSize: 9, color: "var(--text-muted)", fontWeight: 500 }}>Last Updated: {(i % 10) + 1}m ago</div>
+                    <div style={{ fontSize: 10, color: "var(--text-muted)", fontWeight: 500 }}>Last Updated: {(i % 10) + 1}m ago</div>
                   </div>
                 </div>
               ))}
@@ -282,21 +281,21 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--positive)", boxShadow: "0 0 8px var(--positive)" }} />
-                <span style={{ fontSize: 10, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.05em" }}>LIVE SYSTEM</span>
+                <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.1em" }}>LIVE SYSTEM</span>
               </div>
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: "var(--text-muted)", fontWeight: 600 }}>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: "var(--text-muted)", fontWeight: 600 }}>
                 {formatTime(time)}
               </div>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
               <div style={{ background: "transparent", borderRadius: 0, padding: "8px 0" }}>
-                <div style={{ fontSize: 9, fontWeight: 500, color: "var(--text-muted)", textTransform: "uppercase", marginBottom: 4 }}>Monitored</div>
-                <div style={{ fontSize: 16, fontWeight: 600, color: "var(--text-primary)", fontFamily: "'JetBrains Mono', monospace" }}>27</div>
+                <div style={{ fontSize: 10, fontWeight: 600, color: "var(--text-muted)", textTransform: "uppercase", marginBottom: 4, letterSpacing: "0.05em" }}>Monitored</div>
+                <div style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "'JetBrains Mono', monospace" }}>27</div>
               </div>
               <div style={{ background: "transparent", borderRadius: 0, padding: "8px 0" }}>
-                <div style={{ fontSize: 9, fontWeight: 500, color: "var(--text-muted)", textTransform: "uppercase", marginBottom: 4 }}>Disrupted</div>
-                <div style={{ fontSize: 16, fontWeight: 600, color: "var(--text-primary)", fontFamily: "'JetBrains Mono', monospace" }}>5</div>
+                <div style={{ fontSize: 10, fontWeight: 600, color: "var(--text-muted)", textTransform: "uppercase", marginBottom: 4, letterSpacing: "0.05em" }}>Disrupted</div>
+                <div style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "'JetBrains Mono', monospace" }}>5</div>
               </div>
             </div>
           </>
