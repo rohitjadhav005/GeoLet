@@ -164,7 +164,7 @@ export default function WorldMap() {
             className="conflict-info-card-popup"
             style={{ zIndex: 30 }}
           >
-            <div className="conflict-card-container">
+            <div className="conflict-card-container" onClick={() => navigate(`/country/${selectedConflict.id}`)} style={{ cursor: 'pointer' }}>
               <div className="conflict-card-image">
                 <img
                   src={getImageForConflict(selectedConflict.id)}

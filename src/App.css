@@ -146,3 +146,19 @@
   display: block !important;
   border-top-color: rgba(0,0,0,0.85) !important;
 }
+
+@media (max-width: 768px) {
+  .conflict-card-container {
+    width: 260px;
+  }
+  .conflict-card-image {
+    display: none; /* Hide image on mobile to save space */
+  }
+  .conflict-card-content {
+    padding: 12px;
+  }
+  .conflict-card-nav {
+    width: 48px;
+  }
+}
+
