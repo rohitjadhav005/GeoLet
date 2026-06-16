@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GeoLet — Real-time geopolitical conflict monitoring and trade impact intelligence dashboard. Track active conflicts, fuel price disruptions, and shipping route risks." />
+    <meta name="keywords" content="geopolitical conflict, trade disruption, oil prices, shipping routes, fuel prices, conflict monitoring" />
+    <meta property="og:title" content="GeoLet — Conflict Trade Intelligence" />
+    <meta property="og:description" content="Monitor active global conflicts and their real-time impact on fuel exports, trade routes, and essential commodities." />
+    <title>GeoLet — Conflict Trade Intelligence</title>
+  </head>
+  <body>
+    <div id="error-log" style="color: red; background: white; padding: 20px; z-index: 9999; position: absolute; top: 0; left: 0; display: none; font-family: monospace; font-size: 14px;"></div>
+    <script>
+      window.onerror = function(message, source, lineno, colno, error) {
+        var log = document.getElementById('error-log');
+        log.style.display = 'block';
+        log.innerHTML += '<p><strong>Error:</strong> ' + message + '<br/> at ' + source + ':' + lineno + ':' + colno + '</p>';
+      };
+      window.addEventListener('unhandledrejection', function(event) {
+        var log = document.getElementById('error-log');
+        log.style.display = 'block';
+        log.innerHTML += '<p><strong>Unhandled Promise Rejection:</strong> ' + (event.reason && event.reason.stack ? event.reason.stack : event.reason) + '</p>';
+      });
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+[
+  {
+    "id": "red-sea",
+    "name": "Red Sea / Suez Canal",
+    "status": "critical",
+    "statusLabel": "Severely Disrupted",
+    "affectedBy": [
+      "Israel / Gaza Conflict",
+      "Yemen — Houthi Attacks"
+    ],
+    "dailyTransit": "12% of global trade",
+    "oilVolume": "6–8 million barrels/day",
+    "impact": "Over 70% of shipping traffic has rerouted via the Cape of Good Hope, adding 10–14 days to transit times and increasing fuel and insurance costs by an estimated $1M+ per voyage.",
+    "riskLevel": "Extreme",
+    "vesselAttacks": 84
+  },
+  {
+    "id": "black-sea",
+    "name": "Black Sea",
+    "status": "high",
+    "statusLabel": "Severely Disrupted",
+    "affectedBy": [
+      "Russia–Ukraine War"
+    ],
+    "dailyTransit": "Grain and oil primary",
+    "oilVolume": "1.2 million barrels/day",
+    "impact": "Black Sea grain corridor suspended. Tanker insurance premiums increased 300%. Ukrainian grain exports reduced by 40%, threatening food security in 40+ import-dependent countries.",
+    "riskLevel": "High",
+    "vesselAttacks": 12
+  },
+  {
+    "id": "strait-of-hormuz",
+    "name": "Strait of Hormuz",
+    "status": "medium",
+    "statusLabel": "Elevated Risk",
+    "affectedBy": [
+      "Middle East Regional Tensions",
+      "Iran–Israel Standoff"
+    ],
+    "dailyTransit": "21% of global oil",
+    "oilVolume": "17–18 million barrels/day",
+    "impact": "Heightened Iranian military posturing has raised risk premiums. No closures to date but insurance rates elevated. A closure scenario would trigger immediate global oil price spike of 30–50%.",
+    "riskLevel": "Elevated",
+    "vesselAttacks": 3
+  },
+  {
+    "id": "gulf-of-aden",
+    "name": "Gulf of Aden",
+    "status": "critical",
+    "statusLabel": "Active Threat Zone",
+    "affectedBy": [
+      "Yemen — Houthi Attacks"
+    ],
+    "dailyTransit": "Connects Red Sea to Indian Ocean",
+    "oilVolume": "4 million barrels/day",
+    "impact": "Houthi drone and missile attacks have targeted over 84 commercial vessels. Major shipping lines including Maersk, MSC, and CMA CGM suspended Red Sea operations, causing severe supply chain delays.",
+    "riskLevel": "Extreme",
+    "vesselAttacks": 84
+  },
+  {
+    "id": "baltic-sea",
+    "name": "Baltic Sea Pipelines",
+    "status": "critical",
+    "statusLabel": "Infrastructure Destroyed",
+    "affectedBy": [
+      "Russia–Ukraine War",
+      "Nord Stream Sabotage"
+    ],
+    "dailyTransit": "Pipeline, not shipping lane",
+    "oilVolume": "55 BCM/year capacity (Nord Stream)",
+    "impact": "Nord Stream 1 and 2 pipelines were sabotaged in September 2022. 55 BCM/year of natural gas capacity to Europe permanently destroyed, forcing Europe to find alternative LNG sources at 2-3x cost.",
+    "riskLevel": "Infrastructure Loss",
+    "vesselAttacks": 0
+  }
+]

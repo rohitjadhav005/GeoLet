@@ -1,0 +1,940 @@
+[
+  {
+    "id": "ukraine",
+    "country": "Ukraine",
+    "iso": "UA",
+    "lat": 48.3794,
+    "lng": 31.1656,
+    "severity": "critical",
+    "conflictType": "Interstate War",
+    "startDate": "February 24, 2022",
+    "partiesInvolved": [
+      "Russia",
+      "Ukraine"
+    ],
+    "status": "Active — Ongoing",
+    "description": "Russia launched a full-scale invasion of Ukraine in February 2022, resulting in the largest land war in Europe since World War II. The conflict has severely disrupted global energy markets, grain exports, and fertilizer supply chains. Ukraine and Russia together accounted for nearly 30% of global wheat exports before the war.",
+    "affectedProducts": [
+      {
+        "name": "Crude Oil",
+        "impact": 78,
+        "unit": "% supply disruption",
+        "severity": "critical"
+      },
+      {
+        "name": "Natural Gas",
+        "impact": 65,
+        "unit": "% supply disruption",
+        "severity": "critical"
+      },
+      {
+        "name": "Wheat",
+        "impact": 42,
+        "unit": "% export reduction",
+        "severity": "high"
+      },
+      {
+        "name": "Sunflower Oil",
+        "impact": 55,
+        "unit": "% export reduction",
+        "severity": "high"
+      },
+      {
+        "name": "Steel",
+        "impact": 38,
+        "unit": "% production loss",
+        "severity": "medium"
+      },
+      {
+        "name": "Fertilizers",
+        "impact": 30,
+        "unit": "% supply gap",
+        "severity": "medium"
+      }
+    ],
+    "oilExportAffected": 4.2,
+    "gasExportAffected": 155,
+    "importingCountries": [
+      {
+        "country": "Germany",
+        "dependency": 55,
+        "commodity": "Natural Gas"
+      },
+      {
+        "country": "Italy",
+        "dependency": 43,
+        "commodity": "Natural Gas"
+      },
+      {
+        "country": "Turkey",
+        "dependency": 33,
+        "commodity": "Natural Gas"
+      },
+      {
+        "country": "Egypt",
+        "dependency": 25,
+        "commodity": "Wheat"
+      },
+      {
+        "country": "Lebanon",
+        "dependency": 80,
+        "commodity": "Wheat"
+      },
+      {
+        "country": "Tunisia",
+        "commodity": "Wheat",
+        "dependency": 47
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Black Sea Grain Corridor",
+        "status": "Suspended",
+        "impact": "40M tonnes grain halted"
+      },
+      {
+        "name": "Black Sea Oil Routes",
+        "status": "Severely Disrupted",
+        "impact": "Tanker insurance costs up 300%"
+      }
+    ],
+    "humanitarian": {
+      "displaced": "14.6 million",
+      "refugeesAbroad": "6.2 million",
+      "needingAid": "17.6 million",
+      "deficiencies": [
+        {
+          "category": "Food",
+          "detail": "Acute food insecurity for 6M+ people in conflict zones"
+        },
+        {
+          "category": "Energy",
+          "detail": "Frequent blackouts; 40% of energy infrastructure destroyed"
+        },
+        {
+          "category": "Healthcare",
+          "detail": "500+ hospitals damaged; medicine supply chain broken"
+        },
+        {
+          "category": "Water",
+          "detail": "3M+ people without reliable water access"
+        }
+      ],
+      "challenges": [
+        "Widespread destruction of civilian infrastructure including power grids, water systems, and hospitals",
+        "14.6 million people internally displaced, the largest displacement crisis in Europe in decades",
+        "Severe shortages of heating fuel during winter months, causing hypothermia risks",
+        "Agricultural land contaminated with landmines, reducing future food production capacity",
+        "Economic collapse in eastern regions with GDP contraction exceeding 35%",
+        "Mental health crisis with PTSD affecting an estimated 4 million civilians"
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 62,
+      "currentExport": 27,
+      "preConflictImport": 58,
+      "currentImport": 31,
+      "unit": "Billion USD annually"
+    }
+  },
+  {
+    "id": "russia",
+    "country": "Russia",
+    "iso": "RU",
+    "lat": 61.524,
+    "lng": 105.3188,
+    "severity": "critical",
+    "conflictType": "Interstate War / Sanctions",
+    "startDate": "February 24, 2022",
+    "partiesInvolved": [
+      "Russia",
+      "Ukraine",
+      "NATO allies (sanctions)"
+    ],
+    "status": "Active — Aggressor State Under Sanctions",
+    "description": "Russia, as the aggressor in the Ukraine conflict, faces comprehensive international sanctions that have restructured global energy markets. Despite sanctions, Russia continues to export oil and gas at discounted prices to China, India, and Turkey, reshaping global trade flows. Russia is the world's second-largest oil exporter and largest natural gas exporter.",
+    "affectedProducts": [
+      {
+        "name": "Crude Oil",
+        "impact": 35,
+        "unit": "% sanction-redirected volume",
+        "severity": "high"
+      },
+      {
+        "name": "Natural Gas (Pipeline)",
+        "impact": 80,
+        "unit": "% reduction to Europe",
+        "severity": "critical"
+      },
+      {
+        "name": "LNG",
+        "impact": 20,
+        "unit": "% market disruption",
+        "severity": "medium"
+      },
+      {
+        "name": "Coal",
+        "impact": 45,
+        "unit": "% export ban impact",
+        "severity": "high"
+      },
+      {
+        "name": "Fertilizers (Urea)",
+        "impact": 30,
+        "unit": "% global supply",
+        "severity": "high"
+      },
+      {
+        "name": "Palladium",
+        "impact": 40,
+        "unit": "% global supply at risk",
+        "severity": "medium"
+      }
+    ],
+    "oilExportAffected": 3,
+    "gasExportAffected": 210,
+    "importingCountries": [
+      {
+        "country": "China",
+        "dependency": 22,
+        "commodity": "Crude Oil"
+      },
+      {
+        "country": "India",
+        "dependency": 18,
+        "commodity": "Crude Oil"
+      },
+      {
+        "country": "Turkey",
+        "dependency": 30,
+        "commodity": "Natural Gas"
+      },
+      {
+        "country": "Hungary",
+        "dependency": 65,
+        "commodity": "Natural Gas"
+      },
+      {
+        "country": "Slovakia",
+        "dependency": 70,
+        "commodity": "Natural Gas"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Baltic Sea Pipeline Routes",
+        "status": "Severed (Nord Stream sabotage)",
+        "impact": "55 BCM/year capacity lost"
+      },
+      {
+        "name": "Black Sea Tanker Routes",
+        "status": "Sanctioned",
+        "impact": "Price cap enforcement limiting flows"
+      }
+    ],
+    "humanitarian": {
+      "displaced": "N/A (Aggressor)",
+      "refugeesAbroad": "N/A",
+      "needingAid": "Significant domestic economic hardship",
+      "deficiencies": [
+        {
+          "category": "Consumer Goods",
+          "detail": "Shortage of imported electronics, medicines, and automotive parts"
+        },
+        {
+          "category": "Technology",
+          "detail": "Semiconductor export ban causing aviation and industrial slowdowns"
+        },
+        {
+          "category": "Currency",
+          "detail": "Ruble volatility; 40% inflation at peak"
+        },
+        {
+          "category": "Banking",
+          "detail": "SWIFT exclusion limiting international financial transactions"
+        }
+      ],
+      "challenges": [
+        "Brain drain with over 500,000 skilled workers emigrating since 2022",
+        "Military-industrial complex consuming civilian budget, reducing public services",
+        "Technological stagnation due to semiconductor and dual-use technology bans",
+        "Inflation reaching 17% in 2022, severely impacting household purchasing power",
+        "Isolation from global financial systems creating long-term economic damage"
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 490,
+      "currentExport": 310,
+      "preConflictImport": 305,
+      "currentImport": 185,
+      "unit": "Billion USD annually"
+    }
+  },
+  {
+    "id": "israel",
+    "country": "Israel / Gaza",
+    "iso": "IL",
+    "lat": 31.7683,
+    "lng": 35.2137,
+    "severity": "critical",
+    "conflictType": "Armed Conflict / Humanitarian Crisis",
+    "startDate": "October 7, 2023",
+    "partiesInvolved": [
+      "Israel",
+      "Hamas",
+      "Palestinian Authority"
+    ],
+    "status": "Active — Ongoing Military Operations",
+    "description": "Following the Hamas attack on October 7, 2023, Israel launched extensive military operations in Gaza. The conflict has created a severe humanitarian crisis and raised regional instability concerns, particularly around Houthi attacks on Red Sea shipping — a critical global trade artery carrying 12% of world trade and 30% of global container traffic.",
+    "affectedProducts": [
+      {
+        "name": "Crude Oil",
+        "impact": 15,
+        "unit": "% risk premium",
+        "severity": "medium"
+      },
+      {
+        "name": "LNG",
+        "impact": 25,
+        "unit": "% rerouting cost increase",
+        "severity": "high"
+      },
+      {
+        "name": "Consumer Goods",
+        "impact": 30,
+        "unit": "% shipping cost increase",
+        "severity": "high"
+      },
+      {
+        "name": "Food Aid",
+        "impact": 90,
+        "unit": "% blockade on Gaza",
+        "severity": "critical"
+      },
+      {
+        "name": "Medical Supplies",
+        "impact": 85,
+        "unit": "% restriction on Gaza",
+        "severity": "critical"
+      }
+    ],
+    "oilExportAffected": 0.8,
+    "gasExportAffected": 12,
+    "importingCountries": [
+      {
+        "country": "Egypt",
+        "dependency": 40,
+        "commodity": "Red Sea Trade"
+      },
+      {
+        "country": "Jordan",
+        "dependency": 35,
+        "commodity": "Trade Routes"
+      },
+      {
+        "country": "Europe",
+        "dependency": 30,
+        "commodity": "Suez Canal Shipping"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Red Sea / Suez Canal Route",
+        "status": "Severely Disrupted (Houthi attacks)",
+        "impact": "70% traffic rerouted via Cape of Good Hope; +14 days transit"
+      },
+      {
+        "name": "Gulf of Aden",
+        "status": "High Risk",
+        "impact": "Insurance premiums up 400%"
+      }
+    ],
+    "humanitarian": {
+      "displaced": "1.9 million (Gaza)",
+      "refugeesAbroad": "Minimal (confined)",
+      "needingAid": "2.3 million",
+      "deficiencies": [
+        {
+          "category": "Food",
+          "detail": "IPC Phase 5 Famine conditions in northern Gaza"
+        },
+        {
+          "category": "Water",
+          "detail": "Only 4% of pre-war water production available"
+        },
+        {
+          "category": "Healthcare",
+          "detail": "Only 14 out of 36 hospitals partially functional"
+        },
+        {
+          "category": "Fuel",
+          "detail": "Complete fuel blockade halting generators and ambulances"
+        }
+      ],
+      "challenges": [
+        "Over 1.9 million people displaced into Rafah with nowhere to evacuate",
+        "Complete blockade preventing food, water, fuel, and medicine from entering northern Gaza",
+        "Famine declared by IPC in northern Gaza — first famine declaration in the 21st century Middle East",
+        "Healthcare system collapse with insufficient supplies to treat mass casualty wounds",
+        "Children comprising over 40% of casualties, highest rate of child deaths in modern conflict history",
+        "No clean water access for 2.3 million civilians; cholera and dysentery outbreak risk"
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 32,
+      "currentExport": 18,
+      "preConflictImport": 40,
+      "currentImport": 22,
+      "unit": "Billion USD annually"
+    }
+  },
+  {
+    "id": "yemen",
+    "country": "Yemen",
+    "iso": "YE",
+    "lat": 15.5527,
+    "lng": 48.5164,
+    "severity": "high",
+    "conflictType": "Civil War / Proxy War",
+    "startDate": "March 2015",
+    "partiesInvolved": [
+      "Houthi forces",
+      "Yemeni Government",
+      "Saudi-led Coalition"
+    ],
+    "status": "Active — Houthi escalation targeting Red Sea",
+    "description": "Yemen's decade-long civil war has created the world's worst humanitarian crisis. Since October 2023, Houthi forces have dramatically escalated attacks on commercial shipping in the Red Sea and Gulf of Aden in solidarity with Gaza, forcing global shippers to reroute around the Cape of Good Hope, significantly increasing shipping times and costs.",
+    "affectedProducts": [
+      {
+        "name": "Oil (Transit)",
+        "impact": 40,
+        "unit": "% Red Sea volume at risk",
+        "severity": "critical"
+      },
+      {
+        "name": "LNG (Transit)",
+        "impact": 35,
+        "unit": "% flow disruption",
+        "severity": "high"
+      },
+      {
+        "name": "Grain",
+        "impact": 25,
+        "unit": "% transit disruption",
+        "severity": "high"
+      },
+      {
+        "name": "Consumer Electronics",
+        "impact": 30,
+        "unit": "% shipping delay",
+        "severity": "medium"
+      }
+    ],
+    "oilExportAffected": 0.2,
+    "gasExportAffected": 8,
+    "importingCountries": [
+      {
+        "country": "Europe",
+        "dependency": 30,
+        "commodity": "Suez Canal Oil Transit"
+      },
+      {
+        "country": "Asia",
+        "dependency": 40,
+        "commodity": "Suez Canal Container Trade"
+      },
+      {
+        "country": "United States",
+        "dependency": 15,
+        "commodity": "Canal Trade"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Bab el-Mandeb Strait",
+        "status": "Active Threat Zone",
+        "impact": "Missile and drone attacks on commercial vessels"
+      },
+      {
+        "name": "Gulf of Aden",
+        "status": "High Risk",
+        "impact": "Major shipping lines avoiding route entirely"
+      }
+    ],
+    "humanitarian": {
+      "displaced": "4.5 million",
+      "refugeesAbroad": "0.3 million",
+      "needingAid": "21.6 million",
+      "deficiencies": [
+        {
+          "category": "Food",
+          "detail": "17 million people facing acute food insecurity"
+        },
+        {
+          "category": "Fuel",
+          "detail": "Critical fuel shortage halting water pumps and hospitals"
+        },
+        {
+          "category": "Healthcare",
+          "detail": "50% of health facilities non-functional"
+        },
+        {
+          "category": "Livelihoods",
+          "detail": "Economic collapse with 80% poverty rate"
+        }
+      ],
+      "challenges": [
+        "21.6 million people — over two-thirds of the population — require humanitarian assistance",
+        "Cholera, dengue, and COVID have swept through displacement camps due to lack of clean water",
+        "Fuel shortages cause hospitals, water pumps, and bakeries to stop functioning",
+        "Blockade of Hudaydah port has prevented critical food and medicine imports",
+        "Children suffering from severe acute malnutrition at scale",
+        "Economy destroyed; Yemeni Rial has lost 80% of its value"
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 6,
+      "currentExport": 1,
+      "preConflictImport": 9,
+      "currentImport": 3,
+      "unit": "Billion USD annually"
+    }
+  },
+  {
+    "id": "sudan",
+    "country": "Sudan",
+    "iso": "SD",
+    "lat": 12.8628,
+    "lng": 30.2176,
+    "severity": "high",
+    "conflictType": "Civil War",
+    "startDate": "April 15, 2023",
+    "partiesInvolved": [
+      "Sudanese Armed Forces (SAF)",
+      "Rapid Support Forces (RSF)"
+    ],
+    "status": "Active — Widespread fighting across 7 states",
+    "description": "Sudan erupted into full-scale civil war in April 2023 between the national army and a powerful paramilitary force. The conflict has produced the world's largest displacement crisis as of 2024, with mass atrocities reported in Darfur. Sudan's oil production and export infrastructure has been severely damaged.",
+    "affectedProducts": [
+      {
+        "name": "Crude Oil",
+        "impact": 60,
+        "unit": "% production loss",
+        "severity": "critical"
+      },
+      {
+        "name": "Gold",
+        "impact": 45,
+        "unit": "% export decline",
+        "severity": "high"
+      },
+      {
+        "name": "Sesame Seeds",
+        "impact": 50,
+        "unit": "% export decline",
+        "severity": "high"
+      },
+      {
+        "name": "Gum Arabic",
+        "detail": "Sudan produces 80% of global supply",
+        "impact": 40,
+        "unit": "% supply disruption",
+        "severity": "high"
+      }
+    ],
+    "oilExportAffected": 0.1,
+    "gasExportAffected": 0,
+    "importingCountries": [
+      {
+        "country": "China",
+        "dependency": 55,
+        "commodity": "Crude Oil"
+      },
+      {
+        "country": "UAE",
+        "dependency": 20,
+        "commodity": "Gold"
+      },
+      {
+        "country": "Global Food Industry",
+        "dependency": 80,
+        "commodity": "Gum Arabic"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Port Sudan Export Routes",
+        "status": "Disrupted",
+        "impact": "Oil pipeline to Port Sudan damaged"
+      }
+    ],
+    "humanitarian": {
+      "displaced": "10.7 million (largest crisis worldwide)",
+      "refugeesAbroad": "2.1 million",
+      "needingAid": "24.8 million",
+      "deficiencies": [
+        {
+          "category": "Food",
+          "detail": "Famine declared in Zamzam camp; 755,000 in catastrophic food insecurity"
+        },
+        {
+          "category": "Healthcare",
+          "detail": "70-80% of health facilities non-operational in conflict zones"
+        },
+        {
+          "category": "Water & Sanitation",
+          "detail": "Mass displacement with no WASH access in camps"
+        },
+        {
+          "category": "Protection",
+          "detail": "Mass atrocities, sexual violence used as weapon of war in Darfur"
+        }
+      ],
+      "challenges": [
+        "World's largest displacement crisis in 2024 with over 10.7 million people displaced",
+        "Famine declared in Zamzam displacement camp in North Darfur — first declared famine since 2017",
+        "Mass atrocities and ethnic cleansing reported in Darfur echoing the 2003-2008 genocide",
+        "Humanitarian access blocked; aid organizations unable to reach millions in need",
+        "Complete economic collapse with hyperinflation exceeding 200%",
+        "Children out of school for over a year across conflict-affected states"
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 4.2,
+      "currentExport": 1.1,
+      "preConflictImport": 7.8,
+      "currentImport": 3.2,
+      "unit": "Billion USD annually"
+    }
+  },
+  {
+    "id": "myanmar",
+    "country": "Myanmar",
+    "iso": "MM",
+    "lat": 21.9162,
+    "lng": 95.956,
+    "severity": "high",
+    "conflictType": "Civil War / Post-Coup Resistance",
+    "startDate": "February 1, 2021",
+    "partiesInvolved": [
+      "Military Junta (SAC)",
+      "People's Defence Force (PDF)",
+      "Ethnic Armed Organizations"
+    ],
+    "status": "Active — Military losing significant territory",
+    "description": "Following the 2021 military coup, Myanmar descended into civil war. The military junta faces growing resistance from ethnic armed groups and the People's Defence Force. Myanmar's rare earth minerals, natural gas exports to China and Thailand, and agricultural exports have all been severely disrupted.",
+    "affectedProducts": [
+      {
+        "name": "Natural Gas",
+        "impact": 30,
+        "unit": "% production decline",
+        "severity": "high"
+      },
+      {
+        "name": "Rare Earth Minerals",
+        "impact": 70,
+        "unit": "% supply at risk",
+        "severity": "critical"
+      },
+      {
+        "name": "Rice",
+        "impact": 25,
+        "unit": "% export decline",
+        "severity": "medium"
+      },
+      {
+        "name": "Jade & Gemstones",
+        "impact": 60,
+        "unit": "% trade disruption",
+        "severity": "medium"
+      }
+    ],
+    "oilExportAffected": 0.05,
+    "gasExportAffected": 18,
+    "importingCountries": [
+      {
+        "country": "China",
+        "dependency": 90,
+        "commodity": "Rare Earth Minerals"
+      },
+      {
+        "country": "Thailand",
+        "dependency": 30,
+        "commodity": "Natural Gas"
+      },
+      {
+        "country": "Japan",
+        "dependency": 15,
+        "commodity": "Natural Gas"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Irrawaddy River Trade Route",
+        "status": "Disrupted",
+        "impact": "Internal logistics collapsed"
+      }
+    ],
+    "humanitarian": {
+      "displaced": "3.2 million",
+      "refugeesAbroad": "1.1 million",
+      "needingAid": "18.6 million",
+      "deficiencies": [
+        {
+          "category": "Food",
+          "detail": "Conflict-induced food insecurity for 12.9 million people"
+        },
+        {
+          "category": "Healthcare",
+          "detail": "Systematic attacks on healthcare workers; 500+ incidents"
+        },
+        {
+          "category": "Energy",
+          "detail": "National grid failures; fuel price inflation 200%"
+        },
+        {
+          "category": "Education",
+          "detail": "School system collapsed; 600,000+ children out of school"
+        }
+      ],
+      "challenges": [
+        "Military attacks on civilian populations including airstrikes on villages and displacement camps",
+        "Systematic destruction of healthcare infrastructure; doctors arrested for treating wounded",
+        "Currency collapse with Kyat losing 60% of value against USD",
+        "Internet shutdowns preventing communication and access to information",
+        "18.6 million people in need of humanitarian assistance with severely limited aid access"
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 17.5,
+      "currentExport": 9.8,
+      "preConflictImport": 19.2,
+      "currentImport": 11.4,
+      "unit": "Billion USD annually"
+    }
+  },
+  {
+    "id": "drc",
+    "country": "DR Congo",
+    "iso": "CD",
+    "lat": -4.0383,
+    "lng": 21.7587,
+    "severity": "high",
+    "conflictType": "Multi-party Armed Conflict",
+    "startDate": "Ongoing since 1996",
+    "partiesInvolved": [
+      "M23 (Rwanda-backed)",
+      "FARDC (National Army)",
+      "100+ armed groups"
+    ],
+    "status": "Active — M23 offensive escalating in 2024",
+    "description": "Eastern DR Congo has been in conflict for nearly three decades. The 2024 M23 rebel offensive has seized the city of Goma and surrounding regions rich in cobalt, coltan, and cassiterite — minerals critical to global electric vehicle batteries and electronics supply chains. DR Congo supplies 70% of the world's cobalt.",
+    "affectedProducts": [
+      {
+        "name": "Cobalt",
+        "impact": 70,
+        "unit": "% of global supply at risk",
+        "severity": "critical"
+      },
+      {
+        "name": "Coltan (Tantalum)",
+        "impact": 40,
+        "unit": "% supply disruption",
+        "severity": "high"
+      },
+      {
+        "name": "Cassiterite (Tin)",
+        "impact": 30,
+        "unit": "% export decline",
+        "severity": "high"
+      },
+      {
+        "name": "Gold",
+        "impact": 25,
+        "unit": "% artisanal mining disrupted",
+        "severity": "medium"
+      }
+    ],
+    "oilExportAffected": 0,
+    "gasExportAffected": 0,
+    "importingCountries": [
+      {
+        "country": "China",
+        "dependency": 65,
+        "commodity": "Cobalt / Coltan"
+      },
+      {
+        "country": "South Korea",
+        "dependency": 15,
+        "commodity": "Cobalt (EV batteries)"
+      },
+      {
+        "country": "Japan",
+        "dependency": 10,
+        "commodity": "Cobalt (Electronics)"
+      },
+      {
+        "country": "United States",
+        "dependency": 12,
+        "commodity": "Cobalt"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "East African Overland Routes",
+        "status": "Disrupted",
+        "impact": "Mine-to-port logistics paralyzed"
+      }
+    ],
+    "humanitarian": {
+      "displaced": "7.2 million",
+      "refugeesAbroad": "0.9 million",
+      "needingAid": "23 million",
+      "deficiencies": [
+        {
+          "category": "Food",
+          "detail": "26 million acutely food insecure; IPC Phase 3+ across eastern provinces"
+        },
+        {
+          "category": "Healthcare",
+          "detail": "Cholera, mpox, and ebola outbreaks compounding conflict-related injuries"
+        },
+        {
+          "category": "Protection",
+          "detail": "Mass sexual violence documented; armed group recruitment of children"
+        },
+        {
+          "category": "Shelter",
+          "detail": "7.2M IDPs with inadequate shelter in overcrowded camps"
+        }
+      ],
+      "challenges": [
+        "Largest ongoing humanitarian crisis in Africa with 23 million in need",
+        "Children recruited as soldiers by all armed factions including government-allied militias",
+        "Mineral wealth extraction driving conflict rather than funding development",
+        "Cholera and mpox epidemics spreading through displacement camps with no medical infrastructure",
+        "Aid workers and hospitals systematically targeted by armed groups",
+        "Humanitarian funding gap exceeding 70% of assessed needs"
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 22,
+      "currentExport": 14,
+      "preConflictImport": 10,
+      "currentImport": 7,
+      "unit": "Billion USD annually"
+    }
+  },
+  {
+    "id": "ethiopia",
+    "country": "Ethiopia",
+    "iso": "ET",
+    "lat": 9.145,
+    "lng": 40.4897,
+    "severity": "medium",
+    "conflictType": "Internal Armed Conflict",
+    "startDate": "November 2020",
+    "partiesInvolved": [
+      "ENDF (Government)",
+      "Tigrayan Forces (TPLF)",
+      "Amhara Fano"
+    ],
+    "status": "Fragile Ceasefire — Amhara region still active",
+    "description": "The Tigray War, one of the deadliest conflicts of the 21st century, devastated northern Ethiopia from 2020-2022. A ceasefire was reached in November 2022 but fighting continues in the Amhara region. Ethiopia's agricultural exports, coffee, and cut flowers trade remain severely disrupted. Ethiopia is Africa's second most populous nation.",
+    "affectedProducts": [
+      {
+        "name": "Coffee",
+        "impact": 35,
+        "unit": "% export decline",
+        "severity": "high"
+      },
+      {
+        "name": "Cut Flowers",
+        "impact": 40,
+        "unit": "% export decline from Tigray farms",
+        "severity": "medium"
+      },
+      {
+        "name": "Sesame",
+        "impact": 50,
+        "unit": "% production loss",
+        "severity": "high"
+      },
+      {
+        "name": "Livestock",
+        "impact": 30,
+        "unit": "% trade disruption",
+        "severity": "medium"
+      }
+    ],
+    "oilExportAffected": 0,
+    "gasExportAffected": 0,
+    "importingCountries": [
+      {
+        "country": "Germany",
+        "dependency": 20,
+        "commodity": "Coffee"
+      },
+      {
+        "country": "United States",
+        "dependency": 18,
+        "commodity": "Coffee"
+      },
+      {
+        "country": "Saudi Arabia",
+        "dependency": 15,
+        "commodity": "Livestock"
+      },
+      {
+        "country": "Europe",
+        "dependency": 30,
+        "commodity": "Cut Flowers"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Djibouti Port Access Road",
+        "status": "Partially Restored",
+        "impact": "Land route disruptions adding 3-5 days to shipments"
+      }
+    ],
+    "humanitarian": {
+      "displaced": "4.2 million (active conflict areas)",
+      "refugeesAbroad": "0.2 million",
+      "needingAid": "20.1 million",
+      "deficiencies": [
+        {
+          "category": "Food",
+          "detail": "Famine conditions reported in Tigray; aid access only partially restored"
+        },
+        {
+          "category": "Healthcare",
+          "detail": "Tigray healthcare system 70% destroyed during conflict"
+        },
+        {
+          "category": "Sexual Violence",
+          "detail": "UN documented mass sexual violence as a systematic weapon of war"
+        },
+        {
+          "category": "Livelihoods",
+          "detail": "Agricultural land systematically destroyed; farming communities starved"
+        }
+      ],
+      "challenges": [
+        "Post-war reconstruction of Tigray requires an estimated $20 billion over a decade",
+        "Continued Amhara conflict destabilizing the second-largest state",
+        "Mass atrocities documentation ongoing; no accountability mechanism established",
+        "Agricultural communities unable to replant due to destroyed irrigation and tools",
+        "An estimated 500,000 people died in the Tigray war according to UN estimates",
+        "20.1 million people still requiring humanitarian assistance despite ceasefire"
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 3.8,
+      "currentExport": 2.6,
+      "preConflictImport": 17.2,
+      "currentImport": 12.8,
+      "unit": "Billion USD annually"
+    }
+  }
+]

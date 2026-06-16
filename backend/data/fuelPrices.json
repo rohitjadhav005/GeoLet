@@ -1,0 +1,536 @@
+{
+  "brentCrude": [
+    {
+      "date": "May 16",
+      "price": 83.47
+    },
+    {
+      "date": "May 17",
+      "price": 83.91
+    },
+    {
+      "date": "May 18",
+      "price": 83.17
+    },
+    {
+      "date": "May 19",
+      "price": 83.23
+    },
+    {
+      "date": "May 20",
+      "price": 83.8
+    },
+    {
+      "date": "May 21",
+      "price": 84.98
+    },
+    {
+      "date": "May 22",
+      "price": 83.99
+    },
+    {
+      "date": "May 23",
+      "price": 83.18
+    },
+    {
+      "date": "May 24",
+      "price": 84.05
+    },
+    {
+      "date": "May 25",
+      "price": 84.27
+    },
+    {
+      "date": "May 26",
+      "price": 83.08
+    },
+    {
+      "date": "May 27",
+      "price": 82.03
+    },
+    {
+      "date": "May 28",
+      "price": 83.14
+    },
+    {
+      "date": "May 29",
+      "price": 82.6
+    },
+    {
+      "date": "May 30",
+      "price": 81.93
+    },
+    {
+      "date": "May 31",
+      "price": 82.46
+    },
+    {
+      "date": "Jun 1",
+      "price": 82.86
+    },
+    {
+      "date": "Jun 2",
+      "price": 82.61
+    },
+    {
+      "date": "Jun 3",
+      "price": 82.41
+    },
+    {
+      "date": "Jun 4",
+      "price": 83.01
+    },
+    {
+      "date": "Jun 5",
+      "price": 82.73
+    },
+    {
+      "date": "Jun 6",
+      "price": 82.71
+    },
+    {
+      "date": "Jun 7",
+      "price": 81.86
+    },
+    {
+      "date": "Jun 8",
+      "price": 81.65
+    },
+    {
+      "date": "Jun 9",
+      "price": 82.03
+    },
+    {
+      "date": "Jun 10",
+      "price": 81.31
+    },
+    {
+      "date": "Jun 11",
+      "price": 81.73
+    },
+    {
+      "date": "Jun 12",
+      "price": 82.57
+    },
+    {
+      "date": "Jun 13",
+      "price": 81.64
+    },
+    {
+      "date": "Jun 14",
+      "price": 81.54
+    },
+    {
+      "date": "Jun 15",
+      "price": 80.87
+    }
+  ],
+  "wtiCrude": [
+    {
+      "date": "May 16",
+      "price": 79.45
+    },
+    {
+      "date": "May 17",
+      "price": 78.46
+    },
+    {
+      "date": "May 18",
+      "price": 79.3
+    },
+    {
+      "date": "May 19",
+      "price": 80.16
+    },
+    {
+      "date": "May 20",
+      "price": 79.31
+    },
+    {
+      "date": "May 21",
+      "price": 80.18
+    },
+    {
+      "date": "May 22",
+      "price": 81.43
+    },
+    {
+      "date": "May 23",
+      "price": 82.36
+    },
+    {
+      "date": "May 24",
+      "price": 81.82
+    },
+    {
+      "date": "May 25",
+      "price": 81.36
+    },
+    {
+      "date": "May 26",
+      "price": 81.67
+    },
+    {
+      "date": "May 27",
+      "price": 82.87
+    },
+    {
+      "date": "May 28",
+      "price": 83.47
+    },
+    {
+      "date": "May 29",
+      "price": 84.51
+    },
+    {
+      "date": "May 30",
+      "price": 85.16
+    },
+    {
+      "date": "May 31",
+      "price": 85.42
+    },
+    {
+      "date": "Jun 1",
+      "price": 84.84
+    },
+    {
+      "date": "Jun 2",
+      "price": 83.88
+    },
+    {
+      "date": "Jun 3",
+      "price": 84.73
+    },
+    {
+      "date": "Jun 4",
+      "price": 85.32
+    },
+    {
+      "date": "Jun 5",
+      "price": 85.06
+    },
+    {
+      "date": "Jun 6",
+      "price": 85.13
+    },
+    {
+      "date": "Jun 7",
+      "price": 85.25
+    },
+    {
+      "date": "Jun 8",
+      "price": 86.16
+    },
+    {
+      "date": "Jun 9",
+      "price": 85.62
+    },
+    {
+      "date": "Jun 10",
+      "price": 85.93
+    },
+    {
+      "date": "Jun 11",
+      "price": 86.67
+    },
+    {
+      "date": "Jun 12",
+      "price": 87.09
+    },
+    {
+      "date": "Jun 13",
+      "price": 87.84
+    },
+    {
+      "date": "Jun 14",
+      "price": 87.55
+    },
+    {
+      "date": "Jun 15",
+      "price": 86.6
+    }
+  ],
+  "naturalGas": [
+    {
+      "date": "May 16",
+      "price": 2.95
+    },
+    {
+      "date": "May 17",
+      "price": 2.89
+    },
+    {
+      "date": "May 18",
+      "price": 2.95
+    },
+    {
+      "date": "May 19",
+      "price": 3
+    },
+    {
+      "date": "May 20",
+      "price": 3.09
+    },
+    {
+      "date": "May 21",
+      "price": 3.06
+    },
+    {
+      "date": "May 22",
+      "price": 3.02
+    },
+    {
+      "date": "May 23",
+      "price": 3.03
+    },
+    {
+      "date": "May 24",
+      "price": 3.07
+    },
+    {
+      "date": "May 25",
+      "price": 3.16
+    },
+    {
+      "date": "May 26",
+      "price": 3.09
+    },
+    {
+      "date": "May 27",
+      "price": 3.11
+    },
+    {
+      "date": "May 28",
+      "price": 3.1
+    },
+    {
+      "date": "May 29",
+      "price": 3.1
+    },
+    {
+      "date": "May 30",
+      "price": 3.17
+    },
+    {
+      "date": "May 31",
+      "price": 3.22
+    },
+    {
+      "date": "Jun 1",
+      "price": 3.25
+    },
+    {
+      "date": "Jun 2",
+      "price": 3.21
+    },
+    {
+      "date": "Jun 3",
+      "price": 3.25
+    },
+    {
+      "date": "Jun 4",
+      "price": 3.19
+    },
+    {
+      "date": "Jun 5",
+      "price": 3.23
+    },
+    {
+      "date": "Jun 6",
+      "price": 3.18
+    },
+    {
+      "date": "Jun 7",
+      "price": 3.25
+    },
+    {
+      "date": "Jun 8",
+      "price": 3.21
+    },
+    {
+      "date": "Jun 9",
+      "price": 3.17
+    },
+    {
+      "date": "Jun 10",
+      "price": 3.26
+    },
+    {
+      "date": "Jun 11",
+      "price": 3.33
+    },
+    {
+      "date": "Jun 12",
+      "price": 3.38
+    },
+    {
+      "date": "Jun 13",
+      "price": 3.42
+    },
+    {
+      "date": "Jun 14",
+      "price": 3.37
+    },
+    {
+      "date": "Jun 15",
+      "price": 3.44
+    }
+  ],
+  "lng": [
+    {
+      "date": "May 16",
+      "price": 11.37
+    },
+    {
+      "date": "May 17",
+      "price": 11.29
+    },
+    {
+      "date": "May 18",
+      "price": 11.13
+    },
+    {
+      "date": "May 19",
+      "price": 11.06
+    },
+    {
+      "date": "May 20",
+      "price": 10.97
+    },
+    {
+      "date": "May 21",
+      "price": 11.16
+    },
+    {
+      "date": "May 22",
+      "price": 11.42
+    },
+    {
+      "date": "May 23",
+      "price": 11.45
+    },
+    {
+      "date": "May 24",
+      "price": 11.29
+    },
+    {
+      "date": "May 25",
+      "price": 11.15
+    },
+    {
+      "date": "May 26",
+      "price": 11.2
+    },
+    {
+      "date": "May 27",
+      "price": 11.07
+    },
+    {
+      "date": "May 28",
+      "price": 10.94
+    },
+    {
+      "date": "May 29",
+      "price": 11.1
+    },
+    {
+      "date": "May 30",
+      "price": 11.26
+    },
+    {
+      "date": "May 31",
+      "price": 11.36
+    },
+    {
+      "date": "Jun 1",
+      "price": 11.66
+    },
+    {
+      "date": "Jun 2",
+      "price": 11.95
+    },
+    {
+      "date": "Jun 3",
+      "price": 11.7
+    },
+    {
+      "date": "Jun 4",
+      "price": 12.01
+    },
+    {
+      "date": "Jun 5",
+      "price": 11.78
+    },
+    {
+      "date": "Jun 6",
+      "price": 11.73
+    },
+    {
+      "date": "Jun 7",
+      "price": 11.89
+    },
+    {
+      "date": "Jun 8",
+      "price": 12
+    },
+    {
+      "date": "Jun 9",
+      "price": 12.17
+    },
+    {
+      "date": "Jun 10",
+      "price": 12.15
+    },
+    {
+      "date": "Jun 11",
+      "price": 12.38
+    },
+    {
+      "date": "Jun 12",
+      "price": 12.44
+    },
+    {
+      "date": "Jun 13",
+      "price": 12.38
+    },
+    {
+      "date": "Jun 14",
+      "price": 12.66
+    },
+    {
+      "date": "Jun 15",
+      "price": 12.56
+    }
+  ],
+  "fuelSummary": {
+    "brentCrude": {
+      "label": "Brent Crude",
+      "current": 80.87,
+      "change": "-2.60",
+      "unit": "USD/barrel",
+      "color": "#E53935"
+    },
+    "wtiCrude": {
+      "label": "WTI Crude",
+      "current": 86.6,
+      "change": "7.15",
+      "unit": "USD/barrel",
+      "color": "#FB8C00"
+    },
+    "naturalGas": {
+      "label": "Natural Gas",
+      "current": 3.44,
+      "change": "0.49",
+      "unit": "USD/MMBtu",
+      "color": "#1565C0"
+    },
+    "lng": {
+      "label": "LNG",
+      "current": 12.56,
+      "change": "1.19",
+      "unit": "USD/MMBtu",
+      "color": "#43A047"
+    }
+  }
+}
