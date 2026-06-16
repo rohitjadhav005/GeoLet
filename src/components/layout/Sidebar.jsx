@@ -145,7 +145,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
   return (
     <aside className="sidebar">
       {/* Brand Header */}
-      <div className="sidebar-brand" style={{ padding: "24px 20px 20px" }}>
+      <div className="sidebar-brand" style={{ padding: "24px 24px 20px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div className="sidebar-logo-row" style={{ marginBottom: 0 }}>
             {!isCollapsed && (
@@ -179,8 +179,8 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
       <div className="sidebar-scrollable" style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column", minHeight: 0 }}>
         
         {/* Navigation */}
-        <div className="sidebar-section" style={{ padding: "20px 16px 10px" }}>
-          {!isCollapsed && <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.1em", marginBottom: 16, padding: "0 16px" }}>GLOBAL STATUS</div>}
+        <div className="sidebar-section" style={{ padding: "24px 24px 10px" }}>
+          {!isCollapsed && <div style={{ fontSize: 10, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.1em", marginBottom: 16, padding: "0" }}>GLOBAL STATUS</div>}
           {!isCollapsed && <div className="sidebar-section-label">MISSION CONTROL</div>}
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
             {/* Dashboard Wrapper */}
@@ -202,7 +202,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                 </div>
               ))}
 
-              <div style={{ display: "flex", flexDirection: "column", gap: 4, paddingLeft: 12, borderLeft: "2px solid var(--border)", marginLeft: 22, marginTop: 8 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 4, paddingLeft: 12, borderLeft: "2px solid var(--border)", marginLeft: 10, marginTop: 8 }}>
                 {navItems.filter((i) => i.isSubItem).map((item) => (
                   <div
                     key={item.id}
@@ -233,11 +233,11 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
           </div>
         </div>
 
-        <div className="sidebar-divider" style={{ margin: "16px 16px" }} />
+        <div className="sidebar-divider" style={{ margin: "16px 24px" }} />
 
         {/* Active Conflict Zones */}
         {!isCollapsed && (
-          <div className="sidebar-section" style={{ padding: "0 16px" }}>
+          <div className="sidebar-section" style={{ padding: "0 24px" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 16 }}>
               <div className="sidebar-section-label" style={{ padding: 0, margin: 0 }}>CONFLICT WATCHLIST</div>
               <div style={{ display: "flex", gap: 8, fontSize: 10, fontWeight: 500, fontFamily: "'JetBrains Mono', monospace" }}>
@@ -256,7 +256,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                     if (onCloseMobile) onCloseMobile();
                   }}
                   style={{
-                    display: "flex", alignItems: "flex-start", gap: 12, padding: "6px 12px", 
+                    display: "flex", alignItems: "flex-start", gap: 12, padding: "6px 12px", margin: "0 -12px",
                     borderRadius: 0, cursor: "pointer", transition: "all 0.2s ease",
                     border: "1px solid transparent"
                   }}
@@ -278,7 +278,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
       </div>
 
       {/* Bottom Status Area */}
-      <div className="sidebar-bottom" style={{ padding: "16px", background: "transparent", display: "flex", flexDirection: "column", gap: 16 }}>
+      <div className="sidebar-bottom" style={{ padding: "24px", background: "transparent", display: "flex", flexDirection: "column", gap: 16 }}>
         {!isCollapsed && (
           <>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
