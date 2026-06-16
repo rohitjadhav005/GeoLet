@@ -8,6 +8,7 @@ export default function ConflictOverview({ conflict }) {
 
       <div className="conflict-overview-grid">
         <div className="overview-card">
+          <h3 className="overview-card-title">About the Conflict</h3>
           <p className="overview-description">{conflict.description}</p>
         </div>
 

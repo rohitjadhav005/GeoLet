@@ -970,16 +970,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .overview-card {
   background: var(--surface);
-  backdrop-filter: blur(12px);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 20px;
-
-  box-shadow: var(--shadow-sm);}
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .overview-description {
-  font-size: 14px;
-  line-height: 1.75;
+  font-size: 16px;
+  line-height: 1.8;
   color: var(--text-secondary);
 }
 
@@ -1707,4 +1709,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 4px;
+}
+
+
+.overview-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  letter-spacing: -0.2px;
 }
