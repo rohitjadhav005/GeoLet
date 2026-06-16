@@ -5,7 +5,7 @@ export default function EnergyMonitor() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/energy")
+    fetch("/api/energy")
       .then(res => res.json())
       .then(data => {
         setData(data);

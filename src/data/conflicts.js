@@ -5,7 +5,7 @@ export let totalOilAffected = "0.0";
 export const totalPeopleInNeed = "120+ million";
 
 try {
-  const response = await fetch("http://localhost:8000/api/conflicts");
+  const response = await fetch("/api/conflicts");
   if (response.ok) {
     const data = await response.json();
     conflicts.push(...data);

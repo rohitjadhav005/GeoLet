@@ -61,7 +61,7 @@ export default function FuelPriceChart() {
   // Fetch ML predictions from Python Backend
   useEffect(() => {
     let isMounted = true;
-    fetch(`http://localhost:8000/api/fuel-prices/predict?type=${active}`)
+    fetch(`/api/fuel-prices/predict?type=${active}`)
       .then(res => {
         if (!res.ok) throw new Error("Backend response was not ok");
         return res.json();

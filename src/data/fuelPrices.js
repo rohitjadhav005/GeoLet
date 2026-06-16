@@ -10,7 +10,7 @@ export const fuelSummary = {
 };
 
 try {
-  const response = await fetch("http://localhost:8000/api/fuel-prices");
+  const response = await fetch("/api/fuel-prices");
   if (response.ok) {
     const data = await response.json();
     if (data.brentCrude) brentCrude.push(...data.brentCrude);
