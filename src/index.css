@@ -44,9 +44,9 @@
   --positive: #ffffff;
   --negative: #ff0000;
 
-  --shadow-sm: 0 4px 16px rgba(255, 255, 255, 0.05);
-  --shadow-md: 0 8px 32px rgba(255, 255, 255, 0.08);
-  --shadow-lg: 0 16px 48px rgba(255, 255, 255, 0.12);
+  --shadow-sm: 0 2px 8px rgba(255, 255, 255, 0.03);
+  --shadow-md: 0 4px 16px rgba(255, 255, 255, 0.05);
+  --shadow-lg: 0 8px 24px rgba(255, 255, 255, 0.08);
 
   --sidebar-bg:     #000000;
   --sidebar-border: rgba(255, 255, 255, 0.15);
@@ -92,9 +92,9 @@
   --positive: #000000;
   --negative: #ff0000;
 
-  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
 
   --sidebar-bg:     #ffffff;
   --sidebar-border: rgba(0, 0, 0, 0.15);
@@ -515,7 +515,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: var(--shadow-md);
-  transition: all 200ms ease;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
 
 .card:hover {
@@ -584,7 +584,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: all 200ms ease;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
   position: relative;
   overflow: hidden;
 
