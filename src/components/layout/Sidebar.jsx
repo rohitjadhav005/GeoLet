@@ -126,15 +126,16 @@ export default function Sidebar({
     if (onCloseMobile) onCloseMobile();
   };
 
-  const isShownExpanded = !isCollapsed;
-  const currentWidth = isCollapsed ? 72 : sidebarWidth;
+  const currentWidth = sidebarWidth;
 
   const asideStyle = isMobile ? {
     transform: `translateX(${mobileTranslateX}px)`,
-    transition: isDraggingMobile ? "none" : "transform 0.3s ease"
+    transition: isDraggingMobile ? "none" : "transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)",
+    width: "260px"
   } : {
     width: currentWidth,
-    transition: isDragging ? "none" : "width 0.3s ease"
+    transform: isCollapsed ? `translateX(-100%)` : `translateX(0)`,
+    transition: isDragging ? "none" : "transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)"
   };
 
   return (
@@ -143,25 +144,21 @@ export default function Sidebar({
       style={asideStyle}
     >
       {/* Brand Header */}
-      <div className="sidebar-brand" style={{ padding: !isShownExpanded ? "24px 16px 20px" : "24px 24px 20px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexDirection: !isShownExpanded ? "column" : "row", gap: !isShownExpanded ? 12 : 0 }}>
+      <div className="sidebar-brand" style={{ padding: "24px 24px 20px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexDirection: "row", gap: 0 }}>
           <div className="sidebar-logo-row" style={{ marginBottom: 0 }}>
-            {!isShownExpanded ? (
-              <div style={{ fontSize: 20, fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>G</div>
-            ) : (
-              <div>
-                <div style={{ fontSize: 20, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "-0.5px", lineHeight: 1.1 }}>GeoLet</div>
-                <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 4 }}>Global Analytics</div>
-              </div>
-            )}
+            <div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "-0.5px", lineHeight: 1.1 }}>GeoLet</div>
+              <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 4 }}>Global Analytics</div>
+            </div>
           </div>
           
-          <div style={{ display: "flex", gap: 8, flexDirection: !isShownExpanded ? "column" : "row", alignItems: "center" }}>
+          <div style={{ display: "flex", gap: 8, flexDirection: "row", alignItems: "center" }}>
             {/* Theme Toggle */}
             <button 
               onClick={onToggleTheme} 
               style={{
-                width: 32, height: 32, borderRadius: 0, display: "flex", alignItems: "center", justifyContent: "center",
+                width: 32, height: 32, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center",
                 background: "transparent", border: "none", color: "var(--text-secondary)", cursor: "pointer", transition: "all 0.2s ease"
               }}
               title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
@@ -172,6 +169,19 @@ export default function Sidebar({
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg>
               )}
             </button>
+            {/* Collapse Toggle */}
+            {!isMobile && (
+              <button 
+                onClick={onToggleCollapse} 
+                style={{
+                  width: 32, height: 32, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center",
+                  background: "transparent", border: "none", color: "var(--text-secondary)", cursor: "pointer", transition: "all 0.2s ease"
+                }}
+                title="Close Sidebar"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -182,18 +192,16 @@ export default function Sidebar({
         <div className="sidebar-section" style={{ padding: "24px 24px 10px" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
             
-            {isShownExpanded && (
-              <div style={{ 
-                fontSize: 10, 
-                fontWeight: 700, 
-                color: "var(--text-muted)", 
-                letterSpacing: "0.1em",
-                marginBottom: 12,
-                paddingLeft: 8
-              }}>
-                MISSION CONTROL
-              </div>
-            )}
+            <div style={{ 
+              fontSize: 10, 
+              fontWeight: 700, 
+              color: "var(--text-muted)", 
+              letterSpacing: "0.1em",
+              marginBottom: 12,
+              paddingLeft: 8
+            }}>
+              MISSION CONTROL
+            </div>
 
             {/* Dashboard Wrapper */}
             <div style={{ 
@@ -210,7 +218,7 @@ export default function Sidebar({
                   title={isCollapsed ? item.label : undefined}
                 >
                   <span className="sidebar-nav-icon">{item.icon}</span>
-                  {isShownExpanded && <span>{item.label}</span>}
+                  <span>{item.label}</span>
                 </div>
               ))}
 
@@ -223,7 +231,7 @@ export default function Sidebar({
                     title={isCollapsed ? item.label : undefined}
                   >
                     <span className="sidebar-nav-icon" style={{ width: 16, height: 16 }}>{item.icon}</span>
-                    {isShownExpanded && <span>{item.label}</span>}
+                    <span>{item.label}</span>
                   </div>
                 ))}
               </div>
@@ -238,7 +246,7 @@ export default function Sidebar({
                 title={isCollapsed ? item.label : undefined}
               >
                 <span className="sidebar-nav-icon">{item.icon}</span>
-                {isShownExpanded && <span>{item.label}</span>}
+                <span>{item.label}</span>
               </div>
             ))}
           </div>
@@ -247,83 +255,77 @@ export default function Sidebar({
         <div className="sidebar-divider" style={{ margin: "16px 24px" }} />
 
         {/* Active Conflict Zones */}
-        {isShownExpanded && (
-          <div className="sidebar-section" style={{ padding: "0 24px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 16 }}>
-              <div className="sidebar-section-label" style={{ padding: 0, margin: 0 }}>CONFLICT WATCHLIST</div>
-              <div style={{ display: "flex", gap: 8, fontSize: 10, fontWeight: 500, fontFamily: "'JetBrains Mono', monospace" }}>
-                <span style={{ color: "var(--severity-critical)" }}>{criticalCount} CRIT</span>
-                <span style={{ color: "var(--severity-high)" }}>{highCount} HIGH</span>
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-              {sortedConflicts.map((conflict, i) => (
-                <div
-                  key={conflict.id}
-                  className="sidebar-conflict-item"
-                  onClick={() => {
-                    navigate(`/country/${conflict.id}`);
-                    if (onCloseMobile) onCloseMobile();
-                  }}
-                  style={{
-                    display: "flex", alignItems: "flex-start", gap: 12, padding: "6px 12px", margin: "0 -12px",
-                    borderRadius: 0, cursor: "pointer", transition: "all 0.2s ease",
-                    border: "1px solid transparent"
-                  }}
-                >
-                  <div style={{ fontSize: 12, marginTop: 1, fontWeight: 600, color: "var(--text-muted)", letterSpacing: "0.05em" }}>{countryCodes[conflict.country] || "WW"}</div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 2 }}>
-                      <div style={{ 
-                        fontSize: 13, 
-                        fontWeight: 600, 
-                        color: "var(--text-primary)",
-                        whiteSpace: "nowrap",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        marginRight: 8
-                      }} title={conflict.country}>
-                        {conflict.country}
-                      </div>
-                      <div style={{ width: 6, height: 6, borderRadius: "50%", background: severityColors[conflict.severity], flexShrink: 0 }} />
-                    </div>
-                    <div style={{ fontSize: 10, color: "var(--text-muted)", fontWeight: 500 }}>Last Updated: {(i % 10) + 1}m ago</div>
-                  </div>
-                </div>
-              ))}
+        <div className="sidebar-section" style={{ padding: "0 24px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 16 }}>
+            <div className="sidebar-section-label" style={{ padding: 0, margin: 0 }}>CONFLICT WATCHLIST</div>
+            <div style={{ display: "flex", gap: 8, fontSize: 10, fontWeight: 500, fontFamily: "'JetBrains Mono', monospace" }}>
+              <span style={{ color: "var(--severity-critical)" }}>{criticalCount} CRIT</span>
+              <span style={{ color: "var(--severity-high)" }}>{highCount} HIGH</span>
             </div>
           </div>
-        )}
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            {sortedConflicts.map((conflict, i) => (
+              <div
+                key={conflict.id}
+                className="sidebar-conflict-item"
+                onClick={() => {
+                  navigate(`/country/${conflict.id}`);
+                  if (onCloseMobile) onCloseMobile();
+                }}
+                style={{
+                  display: "flex", alignItems: "flex-start", gap: 12, padding: "6px 12px", margin: "0 -12px",
+                  borderRadius: 8, cursor: "pointer", transition: "all 0.2s ease",
+                  border: "1px solid transparent"
+                }}
+              >
+                <div style={{ fontSize: 12, marginTop: 1, fontWeight: 600, color: "var(--text-muted)", letterSpacing: "0.05em" }}>{countryCodes[conflict.country] || "WW"}</div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 2 }}>
+                    <div style={{ 
+                      fontSize: 13, 
+                      fontWeight: 600, 
+                      color: "var(--text-primary)",
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      marginRight: 8
+                    }} title={conflict.country}>
+                      {conflict.country}
+                    </div>
+                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: severityColors[conflict.severity], flexShrink: 0 }} />
+                  </div>
+                  <div style={{ fontSize: 10, color: "var(--text-muted)", fontWeight: 500 }}>Last Updated: {(i % 10) + 1}m ago</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
       </div>
 
       {/* Bottom Status Area */}
       <div className="sidebar-bottom" style={{ padding: "24px", background: "transparent", display: "flex", flexDirection: "column", gap: 16 }}>
-        {isShownExpanded && (
-          <>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--positive)", boxShadow: "0 0 8px var(--positive)" }} />
-                <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.1em" }}>LIVE SYSTEM</span>
-              </div>
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: "var(--text-muted)", fontWeight: 600 }}>
-                {formatTime(time)}
-              </div>
-            </div>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--positive)", boxShadow: "0 0 8px var(--positive)" }} />
+            <span style={{ fontSize: 11, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.1em" }}>LIVE SYSTEM</span>
+          </div>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: "var(--text-muted)", fontWeight: 600 }}>
+            {formatTime(time)}
+          </div>
+        </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-              <div style={{ background: "transparent", borderRadius: 0, padding: "8px 0" }}>
-                <div style={{ fontSize: 10, fontWeight: 600, color: "var(--text-muted)", textTransform: "uppercase", marginBottom: 4, letterSpacing: "0.05em" }}>Monitored</div>
-                <div style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "'JetBrains Mono', monospace" }}>27</div>
-              </div>
-              <div style={{ background: "transparent", borderRadius: 0, padding: "8px 0" }}>
-                <div style={{ fontSize: 10, fontWeight: 600, color: "var(--text-muted)", textTransform: "uppercase", marginBottom: 4, letterSpacing: "0.05em" }}>Disrupted</div>
-                <div style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "'JetBrains Mono', monospace" }}>5</div>
-              </div>
-            </div>
-          </>
-        )}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+          <div style={{ background: "transparent", borderRadius: 0, padding: "8px 0" }}>
+            <div style={{ fontSize: 10, fontWeight: 600, color: "var(--text-muted)", textTransform: "uppercase", marginBottom: 4, letterSpacing: "0.05em" }}>Monitored</div>
+            <div style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "'JetBrains Mono', monospace" }}>27</div>
+          </div>
+          <div style={{ background: "transparent", borderRadius: 0, padding: "8px 0" }}>
+            <div style={{ fontSize: 10, fontWeight: 600, color: "var(--text-muted)", textTransform: "uppercase", marginBottom: 4, letterSpacing: "0.05em" }}>Disrupted</div>
+            <div style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "'JetBrains Mono', monospace" }}>5</div>
+          </div>
+        </div>
 
       </div>
 
@@ -336,19 +338,7 @@ export default function Sidebar({
             onStartResize();
           }}
         >
-          {/* Grab Handle Pill */}
-          <div className="sidebar-resizer-handle" onClick={(e) => {
-            e.stopPropagation();
-            onToggleCollapse();
-          }}>
-            <svg width="8" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              {isCollapsed ? (
-                <polyline points="9 18 15 12 9 6"/>
-              ) : (
-                <polyline points="15 18 9 12 15 6"/>
-              )}
-            </svg>
-          </div>
+          {/* Removed the Pill Resizer Handle to make it look cleaner like ChatGPT */}
         </div>
       )}
     </aside>

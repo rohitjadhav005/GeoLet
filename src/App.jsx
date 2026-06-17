@@ -203,11 +203,43 @@ export default function App() {
         {/* Overlay for mobile */}
         {isMobileSidebarOpen && <div className="mobile-overlay" onClick={() => setIsMobileSidebarOpen(false)}></div>}
 
+        {/* ChatGPT style toggle button when sidebar is closed */}
+        {!isMobile && (
+          <button 
+            className="sidebar-open-btn"
+            onClick={() => setIsSidebarCollapsed(false)}
+            style={{
+              position: "fixed",
+              top: "24px",
+              left: "24px",
+              zIndex: 100,
+              width: "40px",
+              height: "40px",
+              borderRadius: "8px",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
+              color: "var(--text-secondary)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              boxShadow: "var(--shadow-sm)",
+              transition: "all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)",
+              opacity: isSidebarCollapsed ? 1 : 0,
+              pointerEvents: isSidebarCollapsed ? "auto" : "none",
+              transform: isSidebarCollapsed ? "translateX(0)" : "translateX(-20px) scale(0.95)"
+            }}
+            title="Open Sidebar"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+          </button>
+        )}
+
         <main 
           className="main-content"
           style={{
-            marginLeft: isMobile ? 0 : (isSidebarCollapsed ? 72 : sidebarWidth),
-            transition: isDragging ? "none" : "margin-left 0.3s ease"
+            marginLeft: isMobile ? 0 : (isSidebarCollapsed ? 0 : sidebarWidth),
+            transition: isDragging ? "none" : "margin-left 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)"
           }}
         >
           <Routes>

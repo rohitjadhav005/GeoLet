@@ -156,10 +156,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-radius: 0 !important;
 }
 
-.sidebar-collapsed .sidebar {
-  width: 72px;
-}
-
 /* Sidebar Resizer edge styling */
 .sidebar-resizer {
   position: absolute;
@@ -485,10 +481,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: var(--bg);
   overflow-x: hidden;
   transition: margin-left 300ms ease;
-}
-
-.sidebar-collapsed .main-content {
-  margin-left: 104px;
 }
 
 /* ============================================================
@@ -1558,12 +1550,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   .main-content {
     margin-left: 220px;
-  }
-  .sidebar-collapsed .sidebar {
-    width: 72px;
-  }
-  .sidebar-collapsed .main-content {
-    margin-left: 104px;
   }
   .routes-grid {
     grid-template-columns: 1fr;
