@@ -9,8 +9,17 @@ import "./App.css";
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+
+  // Resizable sidebar states
+  const [sidebarWidth, setSidebarWidth] = useState(240);
+  const [isDragging, setIsDragging] = useState(false);
+  
+  // Mobile touch drawer states
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [mobileTranslateX, setMobileTranslateX] = useState(-260);
+  const [isDraggingMobile, setIsDraggingMobile] = useState(false);
 
   useEffect(() => {
     if (isDark) {
@@ -22,10 +31,12 @@ export default function App() {
     }
   }, [isDark]);
 
-  // Close mobile sidebar when window is resized to desktop
+  // Window resize listener to handle viewport mode shifts
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 768) {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      if (!mobile) {
         setIsMobileSidebarOpen(false);
       }
     };
@@ -33,43 +44,125 @@ export default function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Swipe gestures to open/close sidebar on mobile
+  // Sync mobile drawer translate position with open state
   useEffect(() => {
-    let touchStartX = 0;
-    let touchStartY = 0;
+    if (isMobileSidebarOpen) {
+      setMobileTranslateX(0);
+    } else {
+      setMobileTranslateX(-260);
+    }
+  }, [isMobileSidebarOpen]);
 
-    const handleTouchStart = (e) => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
+  // Desktop drag-to-resize listener
+  useEffect(() => {
+    if (!isDragging) return;
+
+    const handleMouseMove = (e) => {
+      const newWidth = e.clientX;
+      if (newWidth < 120) {
+        setIsSidebarCollapsed(true);
+      } else {
+        setIsSidebarCollapsed(false);
+        setSidebarWidth(Math.max(160, Math.min(360, newWidth)));
+      }
     };
 
-    const handleTouchEnd = (e) => {
-      const touchEndX = e.changedTouches[0].clientX;
-      const touchEndY = e.changedTouches[0].clientY;
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
 
-      const diffX = touchEndX - touchStartX;
-      const diffY = touchEndY - touchStartY;
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isDragging]);
 
-      // Check if horizontal swipe is the dominant gesture
-      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 60) {
-        if (diffX > 0 && touchStartX < 50) {
-          // Left-to-right swipe near left edge -> Open Sidebar
+  // Block cursor shifts and text selections while resizing
+  useEffect(() => {
+    if (isDragging) {
+      document.body.classList.add("is-resizing");
+    } else {
+      document.body.classList.remove("is-resizing");
+    }
+  }, [isDragging]);
+
+  // Touch Swipe & Drag-to-Slide Handlers for Mobile Drawer
+  useEffect(() => {
+    if (!isMobile) return;
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let initialTranslateX = 0;
+    let isTracking = false;
+
+    const handleTouchStart = (e) => {
+      const clientX = e.touches[0].clientX;
+      const clientY = e.touches[0].clientY;
+      touchStartX = clientX;
+      touchStartY = clientY;
+      initialTranslateX = isMobileSidebarOpen ? 0 : -260;
+
+      // Track if sidebar is open, or starting near the left edge
+      if (isMobileSidebarOpen || clientX < 45) {
+        isTracking = true;
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isTracking) return;
+
+      const clientX = e.touches[0].clientX;
+      const clientY = e.touches[0].clientY;
+      const diffX = clientX - touchStartX;
+      const diffY = clientY - touchStartY;
+
+      // If scrolling vertically, cancel swipe tracking
+      if (!isDraggingMobile && Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 10) {
+        isTracking = false;
+        return;
+      }
+
+      if (Math.abs(diffX) > 10 && !isDraggingMobile) {
+        setIsDraggingMobile(true);
+      }
+
+      if (isDraggingMobile) {
+        if (e.cancelable) e.preventDefault();
+        let nextTranslateX = initialTranslateX + diffX;
+        nextTranslateX = Math.max(-260, Math.min(0, nextTranslateX));
+        setMobileTranslateX(nextTranslateX);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      if (!isTracking) return;
+      isTracking = false;
+
+      if (isDraggingMobile) {
+        setIsDraggingMobile(false);
+        // Snap open/close thresholds
+        if (mobileTranslateX > -170) {
           setIsMobileSidebarOpen(true);
-        } else if (diffX < 0) {
-          // Right-to-left swipe -> Close Sidebar
+          setMobileTranslateX(0);
+        } else {
           setIsMobileSidebarOpen(false);
+          setMobileTranslateX(-260);
         }
       }
     };
 
     window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+    window.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, []);
+  }, [isMobile, isMobileSidebarOpen, isDraggingMobile, mobileTranslateX]);
 
   return (
     <BrowserRouter>
@@ -78,8 +171,14 @@ export default function App() {
           isDark={isDark} 
           onToggleTheme={() => setIsDark(!isDark)} 
           isCollapsed={isSidebarCollapsed}
+          sidebarWidth={sidebarWidth}
+          isDragging={isDragging}
+          onStartResize={() => setIsDragging(true)}
           onToggleCollapse={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
           onCloseMobile={() => setIsMobileSidebarOpen(false)}
+          isMobile={isMobile}
+          mobileTranslateX={mobileTranslateX}
+          isDraggingMobile={isDraggingMobile}
         />
         
         {/* Mobile Header */}
@@ -104,7 +203,13 @@ export default function App() {
         {/* Overlay for mobile */}
         {isMobileSidebarOpen && <div className="mobile-overlay" onClick={() => setIsMobileSidebarOpen(false)}></div>}
 
-        <main className="main-content">
+        <main 
+          className="main-content"
+          style={{
+            marginLeft: isMobile ? 0 : (isSidebarCollapsed ? 72 : sidebarWidth),
+            transition: isDragging ? "none" : "margin-left 0.3s ease"
+          }}
+        >
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/energy" element={<EnergyMonitor />} />

@@ -8,75 +8,47 @@ const severityColors = {
   medium:   "var(--severity-medium)",
 };
 
+import { LayoutDashboard, Map, TrendingDown, Ship, Zap, Radio } from "lucide-react";
+
 const navItems = [
   {
     id: "dashboard",
     label: "Dashboard",
     path: "/",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-        <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
-      </svg>
-    ),
+    icon: <LayoutDashboard size={20} />,
   },
   {
     id: "map",
     label: "Conflict Map",
     path: "/#map",
     isSubItem: true,
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
-        <line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/>
-      </svg>
-    ),
+    icon: <Map size={16} />,
   },
   {
     id: "trade",
     label: "Trade Impact",
     path: "/#trade",
     isSubItem: true,
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-        <polyline points="17 6 23 6 23 12"/>
-      </svg>
-    ),
+    icon: <TrendingDown size={16} />,
   },
   {
     id: "routes",
     label: "Shipping Routes",
     path: "/#routes",
     isSubItem: true,
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="2" y1="12" x2="22" y2="12"/>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-      </svg>
-    ),
+    icon: <Ship size={16} />,
   },
   {
     id: "energy",
     label: "Energy Monitor",
     path: "/energy",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-      </svg>
-    ),
+    icon: <Zap size={20} />,
   },
   {
     id: "news",
     label: "News Center",
     path: "/news",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
-        <path d="M18 14h-8M15 18h-5"/>
-      </svg>
-    ),
+    icon: <Radio size={20} />,
   },
 ];
 
@@ -98,11 +70,22 @@ const sortedConflicts = [...conflicts]
     return order[a.severity] - order[b.severity];
   });
 
-export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCollapse, onCloseMobile }) {
+export default function Sidebar({ 
+  isDark, 
+  onToggleTheme, 
+  isCollapsed, 
+  sidebarWidth, 
+  isDragging, 
+  onStartResize, 
+  onToggleCollapse, 
+  onCloseMobile,
+  isMobile,
+  mobileTranslateX,
+  isDraggingMobile
+}) {
   const navigate = useNavigate();
   const location = useLocation();
   const [time, setTime] = useState(new Date());
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const t = setInterval(() => setTime(new Date()), 1000);
@@ -143,13 +126,21 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
     if (onCloseMobile) onCloseMobile();
   };
 
-  const isShownExpanded = !isCollapsed || isHovered;
+  const isShownExpanded = !isCollapsed;
+  const currentWidth = isCollapsed ? 72 : sidebarWidth;
+
+  const asideStyle = isMobile ? {
+    transform: `translateX(${mobileTranslateX}px)`,
+    transition: isDraggingMobile ? "none" : "transform 0.3s ease"
+  } : {
+    width: currentWidth,
+    transition: isDragging ? "none" : "width 0.3s ease"
+  };
 
   return (
     <aside 
-      className={`sidebar ${isHovered ? "hovered" : ""}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className="sidebar"
+      style={asideStyle}
     >
       {/* Brand Header */}
       <div className="sidebar-brand" style={{ padding: !isShownExpanded ? "24px 16px 20px" : "24px 24px 20px" }}>
@@ -190,6 +181,20 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
         {/* Navigation */}
         <div className="sidebar-section" style={{ padding: "24px 24px 10px" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            
+            {isShownExpanded && (
+              <div style={{ 
+                fontSize: 10, 
+                fontWeight: 700, 
+                color: "var(--text-muted)", 
+                letterSpacing: "0.1em",
+                marginBottom: 12,
+                paddingLeft: 8
+              }}>
+                MISSION CONTROL
+              </div>
+            )}
+
             {/* Dashboard Wrapper */}
             <div style={{ 
               background: "transparent", 
@@ -202,7 +207,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                   key={item.id}
                   className={`sidebar-nav-item ${isNavActive(item.path) ? "active" : ""}`}
                   onClick={() => handleNavClick(item.path)}
-                  title={isCollapsed && !isHovered ? item.label : undefined}
+                  title={isCollapsed ? item.label : undefined}
                 >
                   <span className="sidebar-nav-icon">{item.icon}</span>
                   {isShownExpanded && <span>{item.label}</span>}
@@ -215,7 +220,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                     key={item.id}
                     className={`sidebar-nav-item ${isNavActive(item.path) ? "active" : ""}`}
                     onClick={() => handleNavClick(item.path)}
-                    title={isCollapsed && !isHovered ? item.label : undefined}
+                    title={isCollapsed ? item.label : undefined}
                   >
                     <span className="sidebar-nav-icon" style={{ width: 16, height: 16 }}>{item.icon}</span>
                     {isShownExpanded && <span>{item.label}</span>}
@@ -230,7 +235,7 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
                 key={item.id}
                 className={`sidebar-nav-item ${isNavActive(item.path) ? "active" : ""}`}
                 onClick={() => handleNavClick(item.path)}
-                title={isCollapsed && !isHovered ? item.label : undefined}
+                title={isCollapsed ? item.label : undefined}
               >
                 <span className="sidebar-nav-icon">{item.icon}</span>
                 {isShownExpanded && <span>{item.label}</span>}
@@ -321,6 +326,31 @@ export default function Sidebar({ isDark, onToggleTheme, isCollapsed, onToggleCo
         )}
 
       </div>
+
+      {/* Desktop Edge Resizer */}
+      {!isMobile && (
+        <div 
+          className="sidebar-resizer"
+          onMouseDown={(e) => {
+            e.preventDefault();
+            onStartResize();
+          }}
+        >
+          {/* Grab Handle Pill */}
+          <div className="sidebar-resizer-handle" onClick={(e) => {
+            e.stopPropagation();
+            onToggleCollapse();
+          }}>
+            <svg width="8" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              {isCollapsed ? (
+                <polyline points="9 18 15 12 9 6"/>
+              ) : (
+                <polyline points="15 18 9 12 15 6"/>
+              )}
+            </svg>
+          </div>
+        </div>
+      )}
     </aside>
   );
 }

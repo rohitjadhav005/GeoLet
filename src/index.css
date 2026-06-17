@@ -160,9 +160,61 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   width: 72px;
 }
 
-.sidebar-collapsed .sidebar:hover {
-  width: 240px;
-  box-shadow: var(--shadow-lg);
+/* Sidebar Resizer edge styling */
+.sidebar-resizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 10;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-resizer:hover {
+  background-color: var(--border-strong);
+}
+
+.sidebar-resizer-handle {
+  width: 14px;
+  height: 32px;
+  background-color: var(--surface-3);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  opacity: 0;
+  position: absolute;
+  right: -4px; /* Center it over the border boundary */
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar:hover .sidebar-resizer-handle,
+.sidebar-resizer:hover .sidebar-resizer-handle {
+  opacity: 1;
+}
+
+.sidebar-resizer-handle:hover {
+  background-color: var(--accent);
+  color: var(--text-inverse);
+  border-color: var(--accent);
+  transform: scale(1.1);
+}
+
+/* Resizing state utility to lock cursor and select */
+.is-resizing,
+.is-resizing * {
+  cursor: col-resize !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
 }
 
 /* Brand */
