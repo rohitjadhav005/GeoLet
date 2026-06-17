@@ -7,96 +7,97 @@
 /* DARK MODE (default) */
 :root,
 .theme-dark {
-  --bg:           #0a0a0a;
-  --surface:      #121212;
-  --surface-2:    #1a1a1a;
-  --surface-3:    #242424;
-  --accent:       #f5f5f5;
-  --accent-dim:   rgba(255, 255, 255, 0.05);
-  --accent-border:rgba(255, 255, 255, 0.15);
-  --accent-hover: rgba(255, 255, 255, 0.10);
+  --bg:           #000000;
+  --surface:      #000000;
+  --surface-2:    #000000;
+  --surface-3:    #000000;
+  --accent:       #ff0000;
+  --accent-dim:   rgba(255, 0, 0, 0.15);
+  --accent-border:rgba(255, 0, 0, 0.3);
+  --accent-hover: rgba(255, 0, 0, 0.2);
 
   --text-primary:   #ffffff;
-  --text-secondary: #a3a3a3;
-  --text-muted:     #737373;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted:     rgba(255, 255, 255, 0.5);
   --text-inverse:   #000000;
 
-  --border:        rgba(255, 255, 255, 0.06);
-  --border-strong: rgba(255, 255, 255, 0.12);
+  --border:        rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.3);
 
-  --severity-critical:        #EF4444;
-  --severity-critical-dim:    rgba(239, 68, 68, 0.10);
-  --severity-critical-border: rgba(239, 68, 68, 0.25);
+  /* All Severities mapped to Red to preserve 3-color strictness */
+  --severity-critical:        #ff0000;
+  --severity-critical-dim:    rgba(255, 0, 0, 0.10);
+  --severity-critical-border: rgba(255, 0, 0, 0.25);
 
-  --severity-high:            #F97316;
-  --severity-high-dim:        rgba(249, 115, 22, 0.10);
-  --severity-high-border:     rgba(249, 115, 22, 0.25);
+  --severity-high:            #ff0000;
+  --severity-high-dim:        rgba(255, 0, 0, 0.10);
+  --severity-high-border:     rgba(255, 0, 0, 0.25);
 
-  --severity-medium:          #EAB308;
-  --severity-medium-dim:      rgba(234, 179, 8, 0.10);
-  --severity-medium-border:   rgba(234, 179, 8, 0.25);
+  --severity-medium:          #ff0000;
+  --severity-medium-dim:      rgba(255, 0, 0, 0.10);
+  --severity-medium-border:   rgba(255, 0, 0, 0.25);
 
-  --severity-low:             #22C55E;
-  --severity-low-dim:         rgba(34, 197, 94, 0.10);
-  --severity-low-border:      rgba(34, 197, 94, 0.25);
+  --severity-low:             #ffffff; /* Using white for low so it's not all red */
+  --severity-low-dim:         rgba(255, 255, 255, 0.10);
+  --severity-low-border:      rgba(255, 255, 255, 0.25);
 
-  --positive: #22C55E;
-  --negative: #EF4444;
+  --positive: #ffffff;
+  --negative: #ff0000;
 
-  --shadow-sm: 0 4px 12px rgba(0,0,0,0.3);
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.4);
-  --shadow-lg: 0 16px 40px rgba(0,0,0,0.5);
+  --shadow-sm: 0 4px 16px rgba(255, 255, 255, 0.05);
+  --shadow-md: 0 8px 32px rgba(255, 255, 255, 0.08);
+  --shadow-lg: 0 16px 48px rgba(255, 255, 255, 0.12);
 
-  --sidebar-bg:     #050505;
-  --sidebar-border: rgba(255,255,255,0.06);
+  --sidebar-bg:     #000000;
+  --sidebar-border: rgba(255, 255, 255, 0.15);
 
   color-scheme: dark;
 }
 
 /* LIGHT MODE */
 .theme-light {
-  --bg:           #fafafa;
+  --bg:           #ffffff;
   --surface:      #ffffff;
-  --surface-2:    #f5f5f5;
-  --surface-3:    #e5e5e5;
-  --accent:       #0a0a0a;
-  --accent-dim:   rgba(0, 0, 0, 0.05);
-  --accent-border:rgba(0, 0, 0, 0.15);
-  --accent-hover: rgba(0, 0, 0, 0.08);
+  --surface-2:    #ffffff;
+  --surface-3:    #ffffff;
+  --accent:       #ff0000;
+  --accent-dim:   rgba(255, 0, 0, 0.10);
+  --accent-border:rgba(255, 0, 0, 0.25);
+  --accent-hover: rgba(255, 0, 0, 0.15);
 
-  --text-primary:   #0a0a0a;
-  --text-secondary: #525252;
-  --text-muted:     #8a8a8a;
+  --text-primary:   #000000;
+  --text-secondary: rgba(0, 0, 0, 0.7);
+  --text-muted:     rgba(0, 0, 0, 0.5);
   --text-inverse:   #ffffff;
 
-  --border:        rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(0, 0, 0, 0.15);
+  --border:        rgba(0, 0, 0, 0.15);
+  --border-strong: rgba(0, 0, 0, 0.3);
 
-  --severity-critical:        #DC2626;
-  --severity-critical-dim:    rgba(220, 38, 38, 0.08);
-  --severity-critical-border: rgba(220, 38, 38, 0.22);
+  --severity-critical:        #ff0000;
+  --severity-critical-dim:    rgba(255, 0, 0, 0.08);
+  --severity-critical-border: rgba(255, 0, 0, 0.22);
 
-  --severity-high:            #EA580C;
-  --severity-high-dim:        rgba(234, 88, 12, 0.08);
-  --severity-high-border:     rgba(234, 88, 12, 0.22);
+  --severity-high:            #ff0000;
+  --severity-high-dim:        rgba(255, 0, 0, 0.08);
+  --severity-high-border:     rgba(255, 0, 0, 0.22);
 
-  --severity-medium:          #CA8A04;
-  --severity-medium-dim:      rgba(202, 138, 4, 0.08);
-  --severity-medium-border:   rgba(202, 138, 4, 0.22);
+  --severity-medium:          #ff0000;
+  --severity-medium-dim:      rgba(255, 0, 0, 0.08);
+  --severity-medium-border:   rgba(255, 0, 0, 0.22);
 
-  --severity-low:             #16A34A;
-  --severity-low-dim:         rgba(22, 163, 74, 0.08);
-  --severity-low-border:      rgba(22, 163, 74, 0.22);
+  --severity-low:             #000000;
+  --severity-low-dim:         rgba(0, 0, 0, 0.08);
+  --severity-low-border:      rgba(0, 0, 0, 0.22);
 
-  --positive: #16A34A;
-  --negative: #DC2626;
+  --positive: #000000;
+  --negative: #ff0000;
 
-  --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
-  --shadow-lg: 0 16px 40px rgba(0,0,0,0.12);
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
 
-  --sidebar-bg:     #fafafa;
-  --sidebar-border: rgba(0,0,0,0.08);
+  --sidebar-bg:     #ffffff;
+  --sidebar-border: rgba(0, 0, 0, 0.15);
 
   color-scheme: light;
 }
@@ -489,10 +490,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .page-title {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.theme-light .page-title {
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
 }
 
 .page-subtitle {
@@ -506,11 +512,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 ============================================================ */
 .card {
   background: var(--surface);
-  
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: 12px;
   box-shadow: var(--shadow-md);
-  transition: border-color 200ms ease;
+  transition: all 200ms ease;
 }
 
 .card:hover {
@@ -573,9 +578,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .stat-card {
   background: var(--surface);
-  
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: 12px;
   padding: 24px 24px;
   display: flex;
   flex-direction: column;
@@ -584,7 +588,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: relative;
   overflow: hidden;
 
-  box-shadow: var(--shadow-sm);}
+  box-shadow: var(--shadow-md);
+}
 
 .stat-card::before {
   content: '';
@@ -707,13 +712,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .panel {
   background: var(--surface);
-  
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: 12px;
   overflow: hidden;
   min-width: 0;
 
-  box-shadow: var(--shadow-sm);}
+  box-shadow: var(--shadow-md);
+}
 
 .panel-header {
   padding: 14px 18px;
