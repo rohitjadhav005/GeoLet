@@ -350,19 +350,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: all 0.2s ease;
 }
 
-.sidebar-collapsed .sidebar-nav-item {
-  justify-content: center;
-  padding: 12px 0;
-  border-left: 4px solid transparent;
-}
 
-.sidebar-collapsed .sidebar-nav-item:hover {
-  transform: translateX(0);
-}
-
-.sidebar-collapsed .sidebar-nav-item.active {
-  border-left: 4px solid var(--accent);
-}
 
 .sidebar-nav-item.active .sidebar-nav-icon,
 .sidebar-nav-item:hover .sidebar-nav-icon {
