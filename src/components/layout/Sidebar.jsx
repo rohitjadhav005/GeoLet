@@ -148,10 +148,7 @@ export default function Sidebar({
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexDirection: "row", gap: 0 }}>
           <div className="sidebar-logo-row" style={{ marginBottom: 0, display: "flex", alignItems: "center", gap: "12px" }}>
             <img src="/logo.png" alt="GeoLet Logo" style={{ width: "38px", height: "38px", borderRadius: "6px", objectFit: "contain" }} />
-            <div>
-              <div style={{ fontSize: 20, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "-0.5px", lineHeight: 1.1 }}>GeoLet</div>
-              <div style={{ fontSize: 11, fontWeight: 500, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em", marginTop: 4 }}>Global Analytics</div>
-            </div>
+            <div style={{ fontSize: 24, fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>GeoLet</div>
           </div>
           
           <div style={{ display: "flex", gap: 8, flexDirection: "row", alignItems: "center" }}>
