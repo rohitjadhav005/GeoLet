@@ -184,12 +184,8 @@ export default function App() {
         {/* Mobile Header */}
         <div className="mobile-header">
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-              <path d="M2 17l10 5 10-5"></path>
-              <path d="M2 12l10 5 10-5"></path>
-            </svg>
-            <span style={{ fontSize: "16px", fontWeight: "700", color: "var(--text-primary)" }}>GeoLet</span>
+            <img src="/logo.png" alt="GeoLet Logo" style={{ width: "28px", height: "28px", borderRadius: "5px", objectFit: "contain" }} />
+            <span style={{ fontSize: "18px", fontWeight: "800", color: "var(--text-primary)", letterSpacing: "-0.3px" }}>GeoLet</span>
           </div>
           <button className="hamburger-btn" onClick={() => setIsMobileSidebarOpen(true)}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
