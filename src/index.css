@@ -1814,3 +1814,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .delay-400 { transition-delay: 400ms; }
 .delay-500 { transition-delay: 500ms; }
 
+/* Optimize animations for mobile to eliminate scroll lag */
+@media (max-width: 768px) {
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .reveal-blur {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}
+
+

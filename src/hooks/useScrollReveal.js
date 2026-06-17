@@ -2,6 +2,11 @@ import { useEffect } from "react";
 
 export default function useScrollReveal() {
   useEffect(() => {
+    // If mobile, don't run the reveal observer to save CPU/battery and eliminate scroll lag
+    if (window.innerWidth <= 768) {
+      return;
+    }
+
     const observerOptions = {
       root: null,
       rootMargin: "0px",
