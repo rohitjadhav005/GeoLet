@@ -1,18 +1,27 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 import random
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+import requests
 from datetime import datetime, timedelta
 import json
 from pathlib import Path
+from functools import lru_cache
+from api.database import SessionLocal, Conflict
 
 app = FastAPI()
 
-# Allow CORS for React frontend
+# Configure CORS securely using Environment Variables
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],
 )
 
@@ -34,6 +43,30 @@ def get_energy_data():
 
 @app.get("/api/news")
 def get_news_data():
+    NEWS_API_KEY = os.getenv("320a2fabf32241a2a3c05d5ed94a3c7a")
+    
+    # Live API Integration (Requires NEWS_API_KEY)
+    if NEWS_API_KEY:
+        try:
+            url = f"https://newsapi.org/v2/everything?q=geopolitics OR conflict OR energy&sortBy=publishedAt&language=en&apiKey={NEWS_API_KEY}"
+            response = requests.get(url, timeout=5)
+            if response.status_code == 200:
+                data = response.json()
+                articles = []
+                for i, article in enumerate(data.get("articles", [])[:10]):
+                    articles.append({
+                        "id": i,
+                        "title": article.get("title", ""),
+                        "source": article.get("source", {}).get("name", "Unknown Source"),
+                        "timestamp": article.get("publishedAt", ""),
+                        "url": article.get("url", ""),
+                        "severity": "medium" # default
+                    })
+                return {"articles": articles}
+        except Exception as e:
+            print(f"Failed to fetch live news: {e}")
+
+    # Fallback to Mock Data
     now = datetime.now()
     return {
         "articles": [
@@ -84,6 +117,8 @@ def predict_fuel_price(type: str = "brentCrude"):
         ]
     }
 
+# Add in-memory LRU caching to prevent reading the file from disk on every single request
+@lru_cache(maxsize=10)
 def load_data(filename):
     path = Path(__file__).parent / "data" / filename
     if path.exists():
@@ -91,9 +126,20 @@ def load_data(filename):
             return json.load(f)
     return {}
 
+# Database dependency
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
 @app.get("/api/conflicts")
-def get_conflicts():
-    return load_data("conflicts.json")
+def get_conflicts(db = Depends(get_db)):
+    # Query all conflicts from SQLite
+    conflicts = db.query(Conflict).all()
+    # The JSON data is stored in the `data` column
+    return [c.data for c in conflicts]
 
 @app.get("/api/shipping-routes")
 def get_shipping_routes():
