@@ -93,10 +93,10 @@ export default function EnergyMonitor() {
             </div>
 
             {/* Main Content Grid */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "24px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
               
               {/* Chart Section */}
-              <div className="panel card-business reveal-up delay-200" style={{ padding: "28px", gridColumn: "span 2" }}>
+              <div className="panel card-business reveal-up delay-200" style={{ padding: "28px", flex: "1 1 500px", minWidth: 0 }}>
                 <div style={{ marginBottom: "24px" }}>
                   <h3 style={{ color: "var(--text-primary)", fontSize: "18px", margin: "0 0 4px 0" }}>Brent Crude Price Forecast</h3>
                   <p style={{ fontSize: "13px", color: "var(--text-secondary)", margin: 0 }}>Historical data vs 60-day prediction model</p>
@@ -126,7 +126,7 @@ export default function EnergyMonitor() {
               </div>
 
               {/* Pipeline Status */}
-              <div className="panel card-business reveal-up delay-300" style={{ padding: "28px", gridColumn: "span 1" }}>
+              <div className="panel card-business reveal-up delay-300" style={{ padding: "28px", flex: "1 1 300px", minWidth: 0 }}>
                 <div style={{ marginBottom: "24px" }}>
                   <h3 style={{ color: "var(--text-primary)", fontSize: "18px", margin: "0 0 4px 0" }}>Strategic Pipelines</h3>
                   <p style={{ fontSize: "13px", color: "var(--text-secondary)", margin: 0 }}>Live flow rates and operational status</p>

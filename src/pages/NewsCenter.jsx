@@ -45,7 +45,7 @@ export default function NewsCenter() {
             <div style={{ animation: "pulse 2s infinite", opacity: 0.6 }}>Fetching Intelligence Feeds...</div>
           </div>
         ) : news ? (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
             {news.articles.map((article, index) => (
               <div 
                 key={article.id || index} 
