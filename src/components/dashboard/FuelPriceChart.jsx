@@ -129,7 +129,7 @@ export default function FuelPriceChart() {
               Running ML Predictions...
             </div>
           ) : (
-            <LineChart data={mlData} margin={{ top: 0, right: 8, bottom: 0, left: -16 }}>
+            <LineChart data={mlData} margin={{ top: 10, right: 10, bottom: 0, left: 0 }}>
             <CartesianGrid
               strokeDasharray="3 3"
               stroke="rgba(255,255,255,0.04)"
@@ -140,13 +140,16 @@ export default function FuelPriceChart() {
               tick={{ fill: "var(--text-muted)", fontSize: 10 }}
               tickLine={false}
               axisLine={false}
-              interval={6}
+              interval="preserveStartEnd"
+              minTickGap={30}
             />
             <YAxis
               tick={{ fill: "var(--text-muted)", fontSize: 10 }}
               tickLine={false}
               axisLine={false}
               domain={["auto", "auto"]}
+              width={35}
+              tickFormatter={(val) => `$${val.toFixed(0)}`}
             />
             <Tooltip content={<CustomTooltip unit={info.unit} />} />
             <Line

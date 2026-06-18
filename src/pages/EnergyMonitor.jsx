@@ -104,7 +104,7 @@ export default function EnergyMonitor() {
                 
                 <div style={{ width: "100%", height: "300px" }}>
                   <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                       <defs>
                         <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
                           <stop offset="5%" stopColor="var(--accent-blue, #3b82f6)" stopOpacity={0.3}/>
@@ -112,8 +112,16 @@ export default function EnergyMonitor() {
                         </linearGradient>
                       </defs>
                       <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle, rgba(255,255,255,0.05))" vertical={false} />
-                      <XAxis dataKey="date" stroke="var(--text-muted)" fontSize={12} tickLine={false} axisLine={false} />
-                      <YAxis stroke="var(--text-muted)" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(val) => `$${val}`} />
+                      <XAxis dataKey="date" stroke="var(--text-muted)" fontSize={12} tickLine={false} axisLine={false} minTickGap={30} />
+                      <YAxis 
+                        stroke="var(--text-muted)" 
+                        fontSize={12} 
+                        tickLine={false} 
+                        axisLine={false} 
+                        width={40}
+                        domain={["auto", "auto"]}
+                        tickFormatter={(val) => `$${Math.round(val)}`} 
+                      />
                       <Tooltip 
                         contentStyle={{ backgroundColor: "var(--surface, #1e1e1e)", border: "1px solid var(--border)", borderRadius: "8px" }}
                         itemStyle={{ color: "var(--text-primary)" }}
