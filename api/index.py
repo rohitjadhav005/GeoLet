@@ -95,26 +95,69 @@ def get_news_data():
 
 @app.get("/api/fuel-prices/predict")
 def predict_fuel_price(type: str = "brentCrude"):
-    # Define price ranges based on fuel type
-    ranges = {
-        "brentCrude": (70, 90),
-        "wtiCrude": (70, 90),
-        "naturalGas": (2, 5),
-        "lng": (10, 15)
-    }
-    min_val, max_val = ranges.get(type, (50, 100))
+    # Load actual historical dataset from local cache
+    historical = load_data("brent_crude_history.json")
     
-    # Generate some mock historical and predicted data
-    return {
-        "historical": [
-            {"date": "2023-01-01", "price": round(random.uniform(min_val, max_val), 2)},
-            {"date": "2023-02-01", "price": round(random.uniform(min_val, max_val), 2)}
-        ],
-        "predictions": [
-            {"date": "2023-03-01", "price": round(random.uniform(min_val, max_val), 2)},
-            {"date": "2023-04-01", "price": round(random.uniform(min_val, max_val), 2)}
-        ]
-    }
+    if not historical or len(historical) < 10:
+        return {"error": "Insufficient historical data for ML prediction"}
+
+    # We only want the last 90 days for short-term trend training to avoid over-smoothing
+    recent_history = historical[-90:]
+    
+    try:
+        import numpy as np
+        from sklearn.linear_model import LinearRegression
+        
+        # Prepare Data for ML Model
+        # X = days since start (integer), y = price
+        start_date = datetime.strptime(recent_history[0]["date"], "%Y-%m-%d")
+        X = []
+        y = []
+        
+        for row in recent_history:
+            current_date = datetime.strptime(row["date"], "%Y-%m-%d")
+            days_diff = (current_date - start_date).days
+            X.append([days_diff])
+            y.append(row["price"])
+            
+        X = np.array(X)
+        y = np.array(y)
+        
+        # Initialize and Train the Machine Learning Model
+        model = LinearRegression()
+        model.fit(X, y)
+        
+        # Predict the next 60 days
+        predictions = []
+        last_date = datetime.strptime(recent_history[-1]["date"], "%Y-%m-%d")
+        last_day_index = X[-1][0]
+        
+        # Add some slight randomized volatility to the prediction trend to make it look realistic
+        # based on historical standard deviation
+        std_dev = np.std(y) * 0.15 
+        
+        for i in range(1, 61):
+            future_day_index = last_day_index + i
+            # Base prediction from linear regression
+            base_pred = model.predict([[future_day_index]])[0]
+            # Add stochastic volatility
+            noise = random.uniform(-std_dev, std_dev)
+            final_pred = round(base_pred + noise, 2)
+            
+            future_date = last_date + timedelta(days=i)
+            predictions.append({
+                "date": future_date.strftime("%Y-%m-%d"),
+                "price": final_pred
+            })
+            
+        # Return a sample of historical to keep payload light, plus all predictions
+        return {
+            "historical": recent_history[-60:],  # Show last 60 days of actual
+            "predictions": predictions          # Show next 60 days of predicted
+        }
+        
+    except ImportError:
+        return {"error": "Machine Learning dependencies not installed (scikit-learn, numpy)"}
 
 # Add in-memory LRU caching to prevent reading the file from disk on every single request
 @lru_cache(maxsize=10)
