@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import Map, { Marker, Popup, NavigationControl, Source, Layer } from "react-map-gl/maplibre";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -27,11 +27,22 @@ export default function WorldMap() {
   const [clickedCountry, setClickedCountry] = useState(null);
   const navigate = useNavigate();
 
+  const mapRef = useRef(null);
+
   const onMarkerClick = useCallback((e, conflict) => {
     e.originalEvent.stopPropagation();
     setSelectedConflict(conflict);
     setClickedCountry(conflict.country);
     setHoveredConflict(null);
+
+    // Pan the map to make sure the popup is visible
+    if (mapRef.current) {
+      mapRef.current.flyTo({
+        center: [conflict.lng, conflict.lat],
+        duration: 800,
+        essential: true,
+      });
+    }
   }, []);
 
   const onMapClick = useCallback((e) => {
@@ -39,7 +50,7 @@ export default function WorldMap() {
     if (countryFeature) {
       const clickedAdmin = countryFeature.properties.ADMIN;
       setClickedCountry(clickedAdmin);
-      
+
       // Auto-open conflict popup if the clicked country has a conflict
       const matchingConflict = conflicts.find(c => getCountryAliases(c.country).includes(clickedAdmin));
       setSelectedConflict(matchingConflict || null);
@@ -48,6 +59,16 @@ export default function WorldMap() {
       setSelectedConflict(null);
     }
   }, []);
+
+  const activeCountryAliases = Array.from(
+    new Set([
+      ...(clickedCountry ? getCountryAliases(clickedCountry) : []),
+      ...(hoveredConflict ? getCountryAliases(hoveredConflict.country) : []),
+    ])
+  );
+  const filterCountries = activeCountryAliases.length > 0 ? activeCountryAliases : [""];
+
+  const displayConflict = hoveredConflict || selectedConflict;
 
   return (
     <div style={{ width: "100%", height: "100%", position: "relative" }}>
@@ -68,7 +89,7 @@ export default function WorldMap() {
             margin: 0,
             fontSize: "28px",
             fontWeight: 800,
-            color: "#e2e8f0",
+            color: "#ecececff",
             textTransform: "uppercase",
             letterSpacing: "1.5px",
             fontFamily: "'Inter', 'Source Sans Pro', 'IBM Plex Sans', sans-serif",
@@ -80,6 +101,7 @@ export default function WorldMap() {
       </div>
 
       <Map
+        ref={mapRef}
         initialViewState={{
           longitude: 10,
           latitude: 20,
@@ -109,7 +131,7 @@ export default function WorldMap() {
               "fill-color": "#90be6d", // Solid green matching screenshot
               "fill-opacity": 1,
             }}
-            filter={["in", ["get", "ADMIN"], ["literal", getCountryAliases(clickedCountry)]]}
+            filter={["match", ["get", "ADMIN"], filterCountries, true, false]}
           />
         </Source>
 
@@ -124,7 +146,7 @@ export default function WorldMap() {
             onClick={(e) => onMarkerClick(e, conflict)}
           >
             <div
-              className={`cfr-marker ${selectedConflict?.id === conflict.id ? 'selected' : ''}`}
+              className={`cfr-marker ${selectedConflict?.id === conflict.id || hoveredConflict?.id === conflict.id ? 'selected' : ''}`}
               onMouseEnter={() => {
                 if (selectedConflict?.id !== conflict.id) {
                   setHoveredConflict(conflict);
@@ -135,57 +157,43 @@ export default function WorldMap() {
           </Marker>
         ))}
 
-        {/* Hover Tooltip */}
-        {hoveredConflict && !selectedConflict && (
+        {/* Conflict Information Card */}
+        {displayConflict && (
           <Popup
-            longitude={hoveredConflict.lng}
-            latitude={hoveredConflict.lat}
-            closeButton={false}
-            closeOnClick={false}
-            anchor="bottom"
-            offset={12}
-            className="hover-tooltip"
-          >
-            <div style={{ padding: "4px 8px", background: "rgba(0,0,0,0.8)", color: "#fff", borderRadius: "4px", fontSize: "12px", fontWeight: 600 }}>
-              {hoveredConflict.country}
-            </div>
-          </Popup>
-        )}
-
-        {/* Selected Conflict Information Card */}
-        {selectedConflict && (
-          <Popup
-            longitude={selectedConflict.lng}
-            latitude={selectedConflict.lat}
+            longitude={displayConflict.lng}
+            latitude={displayConflict.lat}
             closeButton={false}
             closeOnClick={false}
             anchor="left"
-            offset={16}
+            offset={32}
             className="conflict-info-card-popup"
             style={{ zIndex: 30 }}
           >
-            <div className="conflict-card-container" onClick={() => navigate(`/country/${selectedConflict.id}`)} style={{ cursor: 'pointer' }}>
+            <div className="conflict-card-container" onClick={() => navigate(`/country/${displayConflict.id}`)} style={{ cursor: 'pointer' }}>
               <div className="conflict-card-image">
                 <img
-                  src={getImageForConflict(selectedConflict.id)}
+                  src={getImageForConflict(displayConflict.id)}
                   alt="conflict"
                 />
               </div>
               <div className="conflict-card-content">
-                <div className="conflict-category">{selectedConflict.conflictType}</div>
-                <h2 className="conflict-title">{selectedConflict.country}</h2>
+                <div className="conflict-category">{displayConflict.conflictType}</div>
+                <h2 className="conflict-title">{displayConflict.country}</h2>
                 <div className="conflict-details">
                   <div className="detail-row">
-                    <span className="detail-label">Impact Level:</span>
-                    <span className="detail-value">{selectedConflict.severity}</span>
+                    <span className="detail-label">Impact on the U.S.:</span>
+                    <span className="detail-value">{displayConflict.severity}</span>
                   </div>
                   <div className="detail-row">
-                    <span className="detail-label">Status:</span>
-                    <span className="detail-value">{selectedConflict.status || "Ongoing"}</span>
+                    <span className="detail-label">Conflict Status:</span>
+                    <span className="detail-value">{displayConflict.status || "Ongoing"}</span>
                   </div>
                 </div>
               </div>
-              <div className="conflict-card-nav" onClick={() => navigate(`/country/${selectedConflict.id}`)}>
+              <div className="conflict-card-nav" onClick={(e) => {
+                e.stopPropagation();
+                navigate(`/country/${displayConflict.id}`);
+              }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14"></path>
                   <path d="M12 5l7 7-7 7"></path>
