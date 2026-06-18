@@ -59,6 +59,8 @@
   --radius-md:      12px;
   --radius-lg:      16px;
 
+  --mobile-header-bg: rgba(9, 10, 15, 0.75);
+
   color-scheme: dark;
 }
 
@@ -115,6 +117,8 @@
   --radius-sm:      6px;
   --radius-md:      12px;
   --radius-lg:      16px;
+
+  --mobile-header-bg: rgba(248, 250, 252, 0.75);
 
   color-scheme: light;
 }
@@ -1580,11 +1584,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
   justify-content: space-between;
   padding: 12px 20px;
-  background: var(--sidebar-bg);
-  border-bottom: 1px solid var(--sidebar-border);
+  background: var(--mobile-header-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
 }
 
 .hamburger-btn {
