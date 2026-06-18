@@ -1585,7 +1585,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   justify-content: space-between;
   padding: 12px 20px;
   background: var(--mobile-header-bg);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(13px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   position: sticky;
