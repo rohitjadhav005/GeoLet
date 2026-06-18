@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: geolet-backend
+    env: docker
+    dockerfilePath: backend.Dockerfile
+    plan: free
+    healthCheckPath: /api/conflicts
+    envVars:
+      - key: ALLOWED_ORIGINS
+        value: "https://geo-let.vercel.app"
+      - key: NEWS_API_KEY
+        value: "add_your_key_here"
+
+  - type: web
+    name: geolet-frontend
+    env: docker
+    dockerfilePath: frontend.Dockerfile
+    plan: free
+    envVars:
+      - key: VITE_API_URL
+        value: "update_with_geolet_backend_url"

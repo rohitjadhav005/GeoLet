@@ -10,7 +10,6 @@ from datetime import datetime, timedelta
 import json
 from pathlib import Path
 from functools import lru_cache
-from api.database import SessionLocal, Conflict
 
 app = FastAPI()
 
@@ -126,20 +125,9 @@ def load_data(filename):
             return json.load(f)
     return {}
 
-# Database dependency
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
 @app.get("/api/conflicts")
-def get_conflicts(db = Depends(get_db)):
-    # Query all conflicts from SQLite
-    conflicts = db.query(Conflict).all()
-    # The JSON data is stored in the `data` column
-    return [c.data for c in conflicts]
+def get_conflicts():
+    return load_data("conflicts.json")
 
 @app.get("/api/shipping-routes")
 def get_shipping_routes():
