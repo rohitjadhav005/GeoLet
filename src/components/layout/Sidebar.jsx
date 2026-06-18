@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { conflicts } from "../../data/conflicts";
-
 const severityColors = {
   critical: "var(--severity-critical)",
   high:     "var(--severity-high)",
@@ -146,10 +145,10 @@ export default function Sidebar({
       {/* Brand Header */}
       <div className="sidebar-brand" style={{ padding: "24px 16px 20px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexDirection: "row", gap: 0 }}>
-          <div className="sidebar-logo-row" style={{ marginBottom: 0, display: "flex", alignItems: "center", gap: "8px" }}>
+          <Link to="/" className="sidebar-logo-row" style={{ marginBottom: 0, display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}>
             <img src="/logo.png" alt="GeoLet Logo" style={{ width: "32px", height: "32px", borderRadius: "6px", objectFit: "contain" }} />
             <div style={{ fontSize: 20, fontWeight: 800, color: "var(--text-primary)", letterSpacing: "-0.5px" }}>GeoLet</div>
-          </div>
+          </Link>
           
           <div style={{ display: "flex", gap: 8, flexDirection: "row", alignItems: "center" }}>
             {/* Theme Toggle */}
