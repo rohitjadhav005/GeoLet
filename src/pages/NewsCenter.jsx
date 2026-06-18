@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import useScrollReveal from "../hooks/useScrollReveal";
+import { ExternalLink, Clock, Radio } from "lucide-react";
 
 export default function NewsCenter() {
   useScrollReveal();
@@ -19,40 +20,115 @@ export default function NewsCenter() {
       });
   }, []);
 
+  const formatTimeAgo = (dateString) => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffInHours = Math.floor((now - date) / (1000 * 60 * 60));
+    if (diffInHours === 0) return "Just now";
+    if (diffInHours === 1) return "1 hr ago";
+    if (diffInHours < 24) return `${diffInHours} hrs ago`;
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  };
+
   return (
-    <div className="dashboard-content">
+    <div className="dashboard-content" style={{ maxWidth: "1200px", margin: "0 auto" }}>
       <div className="page-header reveal-left">
         <div>
           <h1 className="page-title">News Center</h1>
           <p className="page-subtitle">Curated intelligence feeds and geopolitical event tracking.</p>
         </div>
       </div>
-      <div style={{ padding: "40px 24px", color: "var(--text-muted)", textAlign: "center" }}>
+
+      <div style={{ padding: "32px 24px", color: "var(--text-muted)" }}>
         {loading ? (
-          <p>Loading news feed from Python backend...</p>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "40vh" }}>
+            <div style={{ animation: "pulse 2s infinite", opacity: 0.6 }}>Fetching Intelligence Feeds...</div>
+          </div>
         ) : news ? (
-          <div style={{ textAlign: "left", display: "grid", gap: "16px" }}>
-            {news.articles.map(article => (
-              <div key={article.id} className="panel card-business reveal-up" style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
+            {news.articles.map((article, index) => (
+              <div 
+                key={article.id || index} 
+                className="panel card-business reveal-up" 
+                style={{ 
+                  padding: "24px", 
+                  display: "flex", 
+                  flexDirection: "column", 
+                  gap: "16px",
+                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                  cursor: "pointer"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                  e.currentTarget.style.boxShadow = "var(--shadow-lg)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "var(--shadow-md)";
+                }}
+                onClick={() => article.url && window.open(article.url, "_blank")}
+              >
+                {/* Card Header: Source and Severity */}
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontSize: "12px", color: "var(--text-secondary)", textTransform: "uppercase", fontWeight: "bold" }}>{article.source}</span>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "var(--text-secondary)" }}>
+                    <Radio size={14} />
+                    <span style={{ fontSize: "12px", textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.05em" }}>
+                      {article.source}
+                    </span>
+                  </div>
                   <span style={{ 
-                    fontSize: "12px", 
-                    padding: "2px 8px", 
-                    borderRadius: "12px", 
-                    background: article.severity === "high" ? "var(--color-negative)" : "var(--bg-elevated)",
-                    color: article.severity === "high" ? "#fff" : "var(--text-primary)"
+                    fontSize: "10px", 
+                    padding: "4px 8px", 
+                    borderRadius: "4px", 
+                    background: article.severity === "high" ? "var(--severity-critical)" : article.severity === "medium" ? "var(--severity-high)" : "var(--bg-elevated)",
+                    color: article.severity === "low" ? "var(--text-primary)" : "#fff",
+                    textTransform: "uppercase",
+                    fontWeight: 700,
+                    letterSpacing: "0.05em"
                   }}>
-                    {article.severity} severity
+                    {article.severity}
                   </span>
                 </div>
-                <h3 style={{ color: "var(--text-primary)", fontSize: "18px", margin: 0 }}>{article.title}</h3>
-                <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>{new Date(article.timestamp).toLocaleString()}</span>
+
+                {/* Article Title */}
+                <h3 style={{ 
+                  color: "var(--text-primary)", 
+                  fontSize: "18px", 
+                  margin: 0,
+                  lineHeight: 1.4,
+                  fontWeight: 600,
+                  flexGrow: 1
+                }}>
+                  {article.title}
+                </h3>
+
+                {/* Card Footer: Time and Link */}
+                <div style={{ 
+                  display: "flex", 
+                  justifyContent: "space-between", 
+                  alignItems: "center",
+                  marginTop: "8px",
+                  paddingTop: "16px",
+                  borderTop: "1px solid var(--border-subtle)"
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "var(--text-muted)", fontSize: "12px" }}>
+                    <Clock size={14} />
+                    <span>{formatTimeAgo(article.timestamp)}</span>
+                  </div>
+                  
+                  {article.url && (
+                    <div style={{ display: "flex", alignItems: "center", gap: "4px", color: "var(--accent-blue)", fontSize: "13px", fontWeight: 600 }}>
+                      Read <ExternalLink size={14} />
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
         ) : (
-          <p>Failed to load news. Ensure the Python backend is running on port 8000.</p>
+          <div style={{ textAlign: "center", padding: "40px" }}>
+            <p>Failed to load news. Please check your connection or API configuration.</p>
+          </div>
         )}
       </div>
     </div>
