@@ -623,40 +623,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .stat-card {
   background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
+  border-left: 4px solid var(--accent-color, var(--accent));
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 22px 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-}
-
-.stat-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--accent-color, var(--accent));
-  box-shadow: 0 1px 8px var(--accent-color, var(--accent));
-  opacity: 0.85;
-  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .stat-card:hover {
-  border-color: var(--accent-color, var(--accent-border));
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: var(--shadow-lg), 0 0 20px rgba(225, 29, 72, 0.05);
-}
-
-.stat-card:hover::before {
-  opacity: 1;
-  height: 4px;
+  border-color: var(--border-strong);
+  border-left-color: var(--accent-color, var(--accent));
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md), 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 
 .stat-card-label {
@@ -668,12 +654,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .stat-card-value {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 32px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 34px;
   font-weight: 800;
   color: var(--text-primary);
-  letter-spacing: -1px;
-  line-height: 1;
+  letter-spacing: -1.2px;
+  line-height: 1.15;
 }
 
 .stat-card-sub {
