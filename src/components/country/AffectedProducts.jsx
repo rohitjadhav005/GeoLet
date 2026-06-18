@@ -6,6 +6,20 @@ const severityColors = {
 };
 
 export default function AffectedProducts({ products }) {
+  if (!products || products.length === 0) {
+    return (
+      <div className="detail-section" id="products">
+        <div className="detail-section-title">
+          <span className="section-number">2</span>
+          Affected Products and Commodities
+        </div>
+        <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-lg)", padding: "32px", textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
+          No specific commodity disruption data is currently available.
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="detail-section" id="products">
       <div className="detail-section-title">

@@ -145,7 +145,7 @@ export default function CountryDetail() {
           <div className="detail-stat">
             <div className="detail-stat-label">Oil Export Affected</div>
             <div className="detail-stat-value" style={{ color: "var(--severity-critical)" }}>
-              {conflict.oilExportAffected}
+              {conflict.oilExportAffected || 0}
             </div>
             <div className="detail-stat-unit">Million barrels / day</div>
           </div>
@@ -161,18 +161,18 @@ export default function CountryDetail() {
           <div className="detail-stat">
             <div className="detail-stat-label">People Needing Aid</div>
             <div className="detail-stat-value" style={{ color: "var(--severity-medium)" }}>
-              {conflict.humanitarian.needingAid}
+              {conflict.humanitarian?.needingAid || "Unknown"}
             </div>
             <div className="detail-stat-unit">Humanitarian assistance required</div>
           </div>
           <div className="detail-stat">
             <div className="detail-stat-label">Commodities Affected</div>
             <div className="detail-stat-value" style={{ color: "var(--accent-blue)" }}>
-              {conflict.affectedProducts.length}
+              {(conflict.affectedProducts || []).length}
             </div>
             <div className="detail-stat-unit">
-              {conflict.affectedProducts.filter((p) => p.severity === "critical").length} critical, {" "}
-              {conflict.affectedProducts.filter((p) => p.severity === "high").length} high
+              {(conflict.affectedProducts || []).filter((p) => p.severity === "critical").length} critical, {" "}
+              {(conflict.affectedProducts || []).filter((p) => p.severity === "high").length} high
             </div>
           </div>
         </div>

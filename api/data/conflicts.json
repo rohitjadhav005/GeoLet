@@ -12,7 +12,7 @@
       "Russia",
       "Ukraine"
     ],
-    "status": "Active — Ongoing",
+    "status": "Active \u2014 Ongoing",
     "description": "Russia launched a full-scale invasion of Ukraine in February 2022, resulting in the largest land war in Europe since World War II. The conflict has severely disrupted global energy markets, grain exports, and fertilizer supply chains. Ukraine and Russia together accounted for nearly 30% of global wheat exports before the war.",
     "affectedProducts": [
       {
@@ -151,7 +151,7 @@
       "Ukraine",
       "NATO allies (sanctions)"
     ],
-    "status": "Active — Aggressor State Under Sanctions",
+    "status": "Active \u2014 Aggressor State Under Sanctions",
     "description": "Russia, as the aggressor in the Ukraine conflict, faces comprehensive international sanctions that have restructured global energy markets. Despite sanctions, Russia continues to export oil and gas at discounted prices to China, India, and Turkey, reshaping global trade flows. Russia is the world's second-largest oil exporter and largest natural gas exporter.",
     "affectedProducts": [
       {
@@ -284,8 +284,8 @@
       "Hamas",
       "Palestinian Authority"
     ],
-    "status": "Active — Ongoing Military Operations",
-    "description": "Following the Hamas attack on October 7, 2023, Israel launched extensive military operations in Gaza. The conflict has created a severe humanitarian crisis and raised regional instability concerns, particularly around Houthi attacks on Red Sea shipping — a critical global trade artery carrying 12% of world trade and 30% of global container traffic.",
+    "status": "Active \u2014 Ongoing Military Operations",
+    "description": "Following the Hamas attack on October 7, 2023, Israel launched extensive military operations in Gaza. The conflict has created a severe humanitarian crisis and raised regional instability concerns, particularly around Houthi attacks on Red Sea shipping \u2014 a critical global trade artery carrying 12% of world trade and 30% of global container traffic.",
     "affectedProducts": [
       {
         "name": "Crude Oil",
@@ -374,7 +374,7 @@
       "challenges": [
         "Over 1.9 million people displaced into Rafah with nowhere to evacuate",
         "Complete blockade preventing food, water, fuel, and medicine from entering northern Gaza",
-        "Famine declared by IPC in northern Gaza — first famine declaration in the 21st century Middle East",
+        "Famine declared by IPC in northern Gaza \u2014 first famine declaration in the 21st century Middle East",
         "Healthcare system collapse with insufficient supplies to treat mass casualty wounds",
         "Children comprising over 40% of casualties, highest rate of child deaths in modern conflict history",
         "No clean water access for 2.3 million civilians; cholera and dysentery outbreak risk"
@@ -402,7 +402,7 @@
       "Yemeni Government",
       "Saudi-led Coalition"
     ],
-    "status": "Active — Houthi escalation targeting Red Sea",
+    "status": "Active \u2014 Houthi escalation targeting Red Sea",
     "description": "Yemen's decade-long civil war has created the world's worst humanitarian crisis. Since October 2023, Houthi forces have dramatically escalated attacks on commercial shipping in the Red Sea and Gulf of Aden in solidarity with Gaza, forcing global shippers to reroute around the Cape of Good Hope, significantly increasing shipping times and costs.",
     "affectedProducts": [
       {
@@ -484,7 +484,7 @@
         }
       ],
       "challenges": [
-        "21.6 million people — over two-thirds of the population — require humanitarian assistance",
+        "21.6 million people \u2014 over two-thirds of the population \u2014 require humanitarian assistance",
         "Cholera, dengue, and COVID have swept through displacement camps due to lack of clean water",
         "Fuel shortages cause hospitals, water pumps, and bakeries to stop functioning",
         "Blockade of Hudaydah port has prevented critical food and medicine imports",
@@ -513,7 +513,7 @@
       "Sudanese Armed Forces (SAF)",
       "Rapid Support Forces (RSF)"
     ],
-    "status": "Active — Widespread fighting across 7 states",
+    "status": "Active \u2014 Widespread fighting across 7 states",
     "description": "Sudan erupted into full-scale civil war in April 2023 between the national army and a powerful paramilitary force. The conflict has produced the world's largest displacement crisis as of 2024, with mass atrocities reported in Darfur. Sudan's oil production and export infrastructure has been severely damaged.",
     "affectedProducts": [
       {
@@ -592,7 +592,7 @@
       ],
       "challenges": [
         "World's largest displacement crisis in 2024 with over 10.7 million people displaced",
-        "Famine declared in Zamzam displacement camp in North Darfur — first declared famine since 2017",
+        "Famine declared in Zamzam displacement camp in North Darfur \u2014 first declared famine since 2017",
         "Mass atrocities and ethnic cleansing reported in Darfur echoing the 2003-2008 genocide",
         "Humanitarian access blocked; aid organizations unable to reach millions in need",
         "Complete economic collapse with hyperinflation exceeding 200%",
@@ -621,7 +621,7 @@
       "People's Defence Force (PDF)",
       "Ethnic Armed Organizations"
     ],
-    "status": "Active — Military losing significant territory",
+    "status": "Active \u2014 Military losing significant territory",
     "description": "Following the 2021 military coup, Myanmar descended into civil war. The military junta faces growing resistance from ethnic armed groups and the People's Defence Force. Myanmar's rare earth minerals, natural gas exports to China and Thailand, and agricultural exports have all been severely disrupted.",
     "affectedProducts": [
       {
@@ -727,8 +727,8 @@
       "FARDC (National Army)",
       "100+ armed groups"
     ],
-    "status": "Active — M23 offensive escalating in 2024",
-    "description": "Eastern DR Congo has been in conflict for nearly three decades. The 2024 M23 rebel offensive has seized the city of Goma and surrounding regions rich in cobalt, coltan, and cassiterite — minerals critical to global electric vehicle batteries and electronics supply chains. DR Congo supplies 70% of the world's cobalt.",
+    "status": "Active \u2014 M23 offensive escalating in 2024",
+    "description": "Eastern DR Congo has been in conflict for nearly three decades. The 2024 M23 rebel offensive has seized the city of Goma and surrounding regions rich in cobalt, coltan, and cassiterite \u2014 minerals critical to global electric vehicle batteries and electronics supply chains. DR Congo supplies 70% of the world's cobalt.",
     "affectedProducts": [
       {
         "name": "Cobalt",
@@ -839,7 +839,7 @@
       "Tigrayan Forces (TPLF)",
       "Amhara Fano"
     ],
-    "status": "Fragile Ceasefire — Amhara region still active",
+    "status": "Fragile Ceasefire \u2014 Amhara region still active",
     "description": "The Tigray War, one of the deadliest conflicts of the 21st century, devastated northern Ethiopia from 2020-2022. A ceasefire was reached in November 2022 but fighting continues in the Amhara region. Ethiopia's agricultural exports, coffee, and cut flowers trade remain severely disrupted. Ethiopia is Africa's second most populous nation.",
     "affectedProducts": [
       {
@@ -936,5 +936,455 @@
       "currentImport": 12.8,
       "unit": "Billion USD annually"
     }
+  },
+  {
+    "id": "haiti",
+    "country": "Haiti",
+    "iso": "HT",
+    "lat": 18.9712,
+    "lng": -72.2852,
+    "severity": "high",
+    "conflictType": "Civil Conflict / Gang Warfare",
+    "startDate": "2024 (escalation)",
+    "partiesInvolved": [
+      "Haitian Gangs",
+      "Haitian Government",
+      "Multinational Force"
+    ],
+    "status": "Active \u2014 Ongoing",
+    "description": "Severe gang warfare and instability. Armed gangs have taken control of large parts of Port-au-Prince, causing a massive humanitarian crisis and displacing hundreds of thousands.",
+    "affectedProducts": [
+      {
+        "name": "Consumer Goods",
+        "impact": 65,
+        "unit": "% import disruption",
+        "severity": "critical"
+      },
+      {
+        "name": "Agricultural Output",
+        "impact": 40,
+        "unit": "% production decline",
+        "severity": "high"
+      }
+    ],
+    "oilExportAffected": 0.0,
+    "gasExportAffected": 0.0,
+    "humanitarian": {
+      "needingAid": "5.0 million",
+      "displaced": "1.0 million+",
+      "fatalities": "5,601+",
+      "foodInsecure": "5.0 million",
+      "deficiencies": [
+        {
+          "category": "Food Security",
+          "detail": "Nearly half the population faces acute food insecurity due to supply chain blockades."
+        },
+        {
+          "category": "Healthcare",
+          "detail": "Near-collapse of basic services; widespread closure of hospitals and clinics."
+        }
+      ],
+      "challenges": [
+        "Armed gangs control major transport routes, ports, and infrastructure.",
+        "Displacement weaponized for territorial and social control.",
+        "Extreme inflation on staple goods due to limited market access."
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 1.2,
+      "currentExport": 0.4,
+      "preConflictImport": 4.5,
+      "currentImport": 1.8,
+      "unit": "Billion USD annually"
+    },
+    "importingCountries": [
+      {
+        "country": "United States",
+        "dependency": 80,
+        "commodity": "Textiles"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Port-au-Prince Terminal",
+        "status": "Severely Disrupted",
+        "impact": "Gangs control access, strangling the formal import economy."
+      }
+    ]
+  },
+  {
+    "id": "nigeria",
+    "country": "Nigeria",
+    "iso": "NG",
+    "lat": 9.082,
+    "lng": 8.6753,
+    "severity": "high",
+    "conflictType": "Insurgency",
+    "startDate": "2009",
+    "partiesInvolved": [
+      "Nigerian Government",
+      "Boko Haram",
+      "ISWAP"
+    ],
+    "status": "Active \u2014 Ongoing",
+    "description": "Boko Haram and ISWAP insurgencies continue to destabilize northeastern Nigeria and surrounding regions, causing significant civilian casualties and displacement.",
+    "affectedProducts": [
+      {
+        "name": "Agricultural Produce",
+        "impact": 45,
+        "unit": "% regional disruption",
+        "severity": "high"
+      },
+      {
+        "name": "Oil Production",
+        "impact": 15,
+        "unit": "% national disruption",
+        "severity": "medium"
+      }
+    ],
+    "oilExportAffected": 0.3,
+    "gasExportAffected": 0.0,
+    "humanitarian": {
+      "needingAid": "11.1 million",
+      "displaced": "3.0 million+",
+      "fatalities": "40,000+",
+      "foodInsecure": "4.8 million",
+      "deficiencies": [
+        {
+          "category": "Livelihoods",
+          "detail": "Looting, extortion, and targeted attacks on farmers and traders."
+        },
+        {
+          "category": "Shelter",
+          "detail": "Millions living in protracted displacement with inadequate infrastructure."
+        }
+      ],
+      "challenges": [
+        "ISWAP establishing parallel governance and taxation systems.",
+        "Environmental degradation and climate change compounding the crisis.",
+        "Intersection of insurgency, banditry, and inter-communal violence."
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 60.5,
+      "currentExport": 45.2,
+      "preConflictImport": 48.0,
+      "currentImport": 40.5,
+      "unit": "Billion USD annually"
+    },
+    "importingCountries": [
+      {
+        "country": "India",
+        "dependency": 12,
+        "commodity": "Crude Oil"
+      },
+      {
+        "country": "Spain",
+        "dependency": 10,
+        "commodity": "Crude Oil"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Lake Chad Basin Land Routes",
+        "status": "High Risk",
+        "impact": "Cross-border trade heavily restricted due to militant checkpoints."
+      }
+    ]
+  },
+  {
+    "id": "syria",
+    "country": "Syria",
+    "iso": "SY",
+    "lat": 34.8021,
+    "lng": 38.9968,
+    "severity": "critical",
+    "conflictType": "Civil War",
+    "startDate": "March 2011",
+    "partiesInvolved": [
+      "Syrian Government",
+      "SDF",
+      "Various Rebel Groups",
+      "Foreign Interveners"
+    ],
+    "status": "Active \u2014 Ongoing",
+    "description": "Ongoing armed clashes in several regions. The multi-sided civil war has resulted in one of the largest refugee crises in modern history, with widespread destruction of infrastructure.",
+    "affectedProducts": [
+      {
+        "name": "Oil Production",
+        "impact": 90,
+        "unit": "% disruption",
+        "severity": "critical"
+      },
+      {
+        "name": "Agriculture (Wheat)",
+        "impact": 70,
+        "unit": "% production loss",
+        "severity": "high"
+      }
+    ],
+    "oilExportAffected": 0.35,
+    "gasExportAffected": 0.0,
+    "humanitarian": {
+      "needingAid": "15.3 million",
+      "displaced": "12.0 million+",
+      "fatalities": "600,000+",
+      "foodInsecure": "12.0 million",
+      "deficiencies": [
+        {
+          "category": "Basic Infrastructure",
+          "detail": "Over 50% of basic infrastructure destroyed, including hospitals and schools."
+        },
+        {
+          "category": "Poverty",
+          "detail": "Over 90% of the population living below the poverty line."
+        }
+      ],
+      "challenges": [
+        "Unexploded ordnance and landmines contaminating vast agricultural areas.",
+        "Hyperinflation and 98% currency devaluation crippling purchasing power.",
+        "Decades required to rebuild decimated social fabric and infrastructure."
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 12.2,
+      "currentExport": 0.8,
+      "preConflictImport": 19.5,
+      "currentImport": 4.1,
+      "unit": "Billion USD annually"
+    },
+    "importingCountries": [
+      {
+        "country": "Regional Neighbors",
+        "dependency": 5,
+        "commodity": "Agricultural Goods"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Levantine Trade Corridors",
+        "status": "Partially Restored",
+        "impact": "Gradual post-transition resumption, but significant structural barriers remain."
+      }
+    ]
+  },
+  {
+    "id": "pakistan",
+    "country": "Pakistan",
+    "iso": "PK",
+    "lat": 30.3753,
+    "lng": 69.3451,
+    "severity": "medium",
+    "conflictType": "Insurgency",
+    "startDate": "2004",
+    "partiesInvolved": [
+      "Pakistani Government",
+      "TTP",
+      "BLA"
+    ],
+    "status": "Active \u2014 Ongoing",
+    "description": "Balochistan and Khyber Pakhtunkhwa insurgencies involving separatist groups and the TTP, leading to frequent attacks on security forces and infrastructure projects.",
+    "affectedProducts": [
+      {
+        "name": "Transit Trade (APTTA)",
+        "impact": 40,
+        "unit": "% border disruption",
+        "severity": "high"
+      },
+      {
+        "name": "FDI & Infrastructure Projects",
+        "impact": 60,
+        "unit": "% investment decline",
+        "severity": "critical"
+      }
+    ],
+    "oilExportAffected": 0.0,
+    "gasExportAffected": 0.0,
+    "humanitarian": {
+      "needingAid": "Millions vulnerable",
+      "displaced": "Unknown",
+      "fatalities": "1,524+ in 2024",
+      "foodInsecure": "High in affected zones",
+      "deficiencies": [
+        {
+          "category": "Human Rights",
+          "detail": "Hundreds of reported enforced disappearances and extrajudicial killings."
+        },
+        {
+          "category": "Basic Services",
+          "detail": "Acute malnutrition and lingering socioeconomic impacts from historical floods."
+        }
+      ],
+      "challenges": [
+        "Rising terror incidents concentrated in Balochistan and Khyber Pakhtunkhwa.",
+        "Uncertainty and security pressures on 3 million Afghan refugees.",
+        "Targeted attacks on CPEC infrastructure deterring economic stabilization."
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 30.2,
+      "currentExport": 28.5,
+      "preConflictImport": 60.1,
+      "currentImport": 55.0,
+      "unit": "Billion USD annually"
+    },
+    "importingCountries": [
+      {
+        "country": "Afghanistan",
+        "dependency": 40,
+        "commodity": "Transit Goods"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "CPEC Land Routes",
+        "status": "High Risk",
+        "impact": "Attacks on infrastructure and pipelines disrupting regional connectivity."
+      }
+    ]
+  },
+  {
+    "id": "india",
+    "country": "India",
+    "iso": "IN",
+    "lat": 20.5937,
+    "lng": 78.9629,
+    "severity": "medium",
+    "conflictType": "Internal Conflicts",
+    "startDate": "Various",
+    "partiesInvolved": [
+      "Indian Government",
+      "Naxalites",
+      "Separatist Groups"
+    ],
+    "status": "Active \u2014 Ongoing",
+    "description": "Multiple internal security challenges including Naxalite (Maoist) insurgency in central/eastern states, ethnic violence in Manipur, and ongoing Kashmir-related tensions.",
+    "affectedProducts": [
+      {
+        "name": "Regional Trade & Mining",
+        "impact": 20,
+        "unit": "% disruption in localized areas",
+        "severity": "medium"
+      }
+    ],
+    "oilExportAffected": 0.0,
+    "gasExportAffected": 0.0,
+    "humanitarian": {
+      "needingAid": "Localized",
+      "displaced": "78,000+ in Manipur",
+      "fatalities": "Hundreds (varies by region)",
+      "foodInsecure": "Moderate in conflict zones",
+      "deficiencies": [
+        {
+          "category": "Shelter & Living Conditions",
+          "detail": "Relief camps facing challenges with infrastructure, overcrowding, and services."
+        },
+        {
+          "category": "Livelihoods",
+          "detail": "Destruction of businesses and homes leading to loss of income."
+        }
+      ],
+      "challenges": [
+        "Sustaining peace in ethnic conflict zones like Manipur.",
+        "Addressing the high-risk investment profile in the Kashmir region.",
+        "Reintegrating former Naxalite strongholds into the national economy."
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 450.0,
+      "currentExport": 448.0,
+      "preConflictImport": 720.0,
+      "currentImport": 718.0,
+      "unit": "Billion USD annually"
+    },
+    "importingCountries": [
+      {
+        "country": "Regional Partners",
+        "dependency": 5,
+        "commodity": "Varies by State"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Eastern Land Routes",
+        "status": "Partially Restored",
+        "impact": "Periodic blockades in conflict-affected border states."
+      }
+    ]
+  },
+  {
+    "id": "colombia",
+    "country": "Colombia",
+    "iso": "CO",
+    "lat": 4.5709,
+    "lng": -74.2973,
+    "severity": "medium",
+    "conflictType": "Insurgency",
+    "startDate": "1964",
+    "partiesInvolved": [
+      "Colombian Government",
+      "ELN",
+      "FARC Dissidents"
+    ],
+    "status": "Active \u2014 Ongoing",
+    "description": "Fighting involving ELN rebels and other armed groups over territorial control and illicit economies, despite peace efforts by the government.",
+    "affectedProducts": [
+      {
+        "name": "Agriculture",
+        "impact": 35,
+        "unit": "% disruption in rural zones",
+        "severity": "high"
+      },
+      {
+        "name": "Mining & Infrastructure",
+        "impact": 25,
+        "unit": "% production decline",
+        "severity": "medium"
+      }
+    ],
+    "oilExportAffected": 0.0,
+    "gasExportAffected": 0.0,
+    "humanitarian": {
+      "needingAid": "13.5 million",
+      "displaced": "5.1 million",
+      "fatalities": "Hundreds annually",
+      "foodInsecure": "High in confined areas",
+      "deficiencies": [
+        {
+          "category": "Freedom of Movement",
+          "detail": "Forced confinement increased by 57%, affecting at least 115,000 people."
+        },
+        {
+          "category": "Protection",
+          "detail": "Targeted violence against Indigenous and Afro-Colombian communities."
+        }
+      ],
+      "challenges": [
+        "Armed groups using confinement and landmines for social control.",
+        "Illicit economies (drugs, illegal mining) fueling the ongoing violence.",
+        "Disrupted local supply chains due to roadblocks and extortion."
+      ]
+    },
+    "tradeImpact": {
+      "preConflictExport": 42.5,
+      "currentExport": 40.0,
+      "preConflictImport": 61.2,
+      "currentImport": 58.5,
+      "unit": "Billion USD annually"
+    },
+    "importingCountries": [
+      {
+        "country": "United States",
+        "dependency": 15,
+        "commodity": "Agricultural Goods"
+      }
+    ],
+    "shippingRoutes": [
+      {
+        "name": "Rural Transport Corridors",
+        "status": "High Risk",
+        "impact": "Frequent roadblocks and extortion severely impacting local trade."
+      }
+    ]
   }
 ]

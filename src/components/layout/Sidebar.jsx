@@ -59,11 +59,16 @@ const countryCodes = {
   "Sudan": "SD",
   "Myanmar": "MM",
   "DR Congo": "CD",
-  "Ethiopia": "ET"
+  "Ethiopia": "ET",
+  "Haiti": "HT",
+  "Nigeria": "NG",
+  "Syria": "SY",
+  "Pakistan": "PK",
+  "India": "IN",
+  "Colombia": "CO"
 };
 
 const sortedConflicts = [...conflicts]
-  .filter((c) => ["ukraine", "russia", "israel", "yemen"].includes(c.id))
   .sort((a, b) => {
     const order = { critical: 0, high: 1, medium: 2 };
     return order[a.severity] - order[b.severity];

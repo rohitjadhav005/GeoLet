@@ -39,6 +39,20 @@ const CustomTooltip = ({ active, payload, label, unit }) => {
 };
 
 export default function TradeImpact({ tradeData }) {
+  if (!tradeData || Array.isArray(tradeData) || Object.keys(tradeData).length === 0) {
+    return (
+      <div className="detail-section" id="trade">
+        <div className="detail-section-title">
+          <span className="section-number">3</span>
+          Trade Impact — Import and Export Disruption
+        </div>
+        <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-lg)", padding: "32px", textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
+          Detailed trade disruption figures are not currently available for this region.
+        </div>
+      </div>
+    );
+  }
+
   const chartData = [
     {
       period: "Pre-Conflict",

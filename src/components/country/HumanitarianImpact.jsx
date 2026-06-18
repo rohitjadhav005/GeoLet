@@ -35,14 +35,20 @@ export default function HumanitarianImpact({ humanitarian }) {
           >
             Critical Deficiencies
           </div>
-          <div className="deficiency-grid">
-            {humanitarian.deficiencies.map((def, i) => (
-              <div key={i} className="deficiency-card animate-fadeInUp" style={{ animationDelay: `${i * 0.05}s`, opacity: 0 }}>
-                <div className="deficiency-category">{def.category}</div>
-                <div className="deficiency-detail">{def.detail}</div>
-              </div>
-            ))}
-          </div>
+          {(!humanitarian.deficiencies || humanitarian.deficiencies.length === 0) ? (
+            <div style={{ color: "var(--text-muted)", fontSize: 13, fontStyle: "italic" }}>
+              No critical deficiency reports available.
+            </div>
+          ) : (
+            <div className="deficiency-grid">
+              {humanitarian.deficiencies.map((def, i) => (
+                <div key={i} className="deficiency-card animate-fadeInUp" style={{ animationDelay: `${i * 0.05}s`, opacity: 0 }}>
+                  <div className="deficiency-category">{def.category}</div>
+                  <div className="deficiency-detail">{def.detail}</div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Challenges */}
@@ -59,14 +65,20 @@ export default function HumanitarianImpact({ humanitarian }) {
           >
             Key Challenges Facing the Population
           </div>
-          <div className="challenges-list">
-            {humanitarian.challenges.map((challenge, i) => (
-              <div key={i} className="challenge-item animate-fadeInUp" style={{ animationDelay: `${i * 0.05}s`, opacity: 0 }}>
-                <div className="challenge-num">0{i + 1}</div>
-                <div>{challenge}</div>
-              </div>
-            ))}
-          </div>
+          {(!humanitarian.challenges || humanitarian.challenges.length === 0) ? (
+            <div style={{ color: "var(--text-muted)", fontSize: 13, fontStyle: "italic" }}>
+              No key challenges listed.
+            </div>
+          ) : (
+            <div className="challenges-list">
+              {humanitarian.challenges.map((challenge, i) => (
+                <div key={i} className="challenge-item animate-fadeInUp" style={{ animationDelay: `${i * 0.05}s`, opacity: 0 }}>
+                  <div className="challenge-num">0{i + 1}</div>
+                  <div>{challenge}</div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

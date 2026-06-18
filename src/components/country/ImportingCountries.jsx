@@ -1,4 +1,18 @@
 export default function ImportingCountries({ countries }) {
+  if (!countries || countries.length === 0) {
+    return (
+      <div className="detail-section" id="importing">
+        <div className="detail-section-title">
+          <span className="section-number">4</span>
+          Countries Importing from This Nation
+        </div>
+        <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-subtle)", borderRadius: "var(--radius-lg)", padding: "32px", textAlign: "center", color: "var(--text-muted)", fontSize: 14 }}>
+          No primary importing countries data is available for this conflict zone.
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="detail-section" id="importing">
       <div className="detail-section-title">

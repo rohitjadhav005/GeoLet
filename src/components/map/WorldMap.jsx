@@ -173,7 +173,8 @@ export default function WorldMap() {
               <div className="conflict-card-image">
                 <img
                   src={getImageForConflict(displayConflict.id)}
-                  alt="conflict"
+                  alt={displayConflict.country}
+                  onError={(e) => { e.target.src = '/images/generic_bg.png'; }}
                 />
               </div>
               <div className="conflict-card-content">
