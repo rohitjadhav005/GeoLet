@@ -1,43 +1,54 @@
-# GeoLet
+# GeoLet — Premium Geopolitical & Trade Monitor
 
-GeoLet is a modern, real-time geopolitical dashboard designed to monitor global energy supplies, pipeline statuses, geopolitical conflicts, and market pricing. The application combines a sleek, dynamic React frontend with a fast, robust Python (FastAPI) backend.
+GeoLet is a high-fidelity, real-time geopolitical intelligence dashboard designed to monitor global energy supplies, pipeline flows, geopolitical conflicts, and shipping/trade disruptions. The system combines a sleek, glassmorphic React frontend with a high-performance Python (FastAPI) backend.
 
-## Features
+## 🌟 Key Features
 
-- **Geopolitical Dashboard**: Monitor active global events and their severity.
-- **Fuel Price ML Predictions**: View historical fuel prices and machine-learning generated future predictions.
-- **Energy Monitor**: Real-time insights into global supply levels and critical infrastructure/pipeline flows.
-- **News Center**: Curated intelligence feeds tracking breaking geopolitical events.
-- **Interactive Map**: An interactive world map reflecting live statistics.
-- **Dark/Light Mode Support**: Built-in support for different aesthetic themes.
-
-## Tech Stack
-
-- **Frontend**: React, Vite, React Router, Recharts
-- **Backend**: Python, FastAPI, Uvicorn, Pydantic
+- **Geopolitical Surveillance Watchlist**: Real-time monitoring of active global conflict zones, including comprehensive profiles for:
+  - **Ukraine / Russia** (Oil/gas trade impacts)
+  - **Israel / Gaza** (Regional stability & risk status)
+  - **Yemen** (Red Sea shipping disruptions)
+  - **Sudan & DR Congo** (Humanitarian and mineral constraints)
+  - **Myanmar** (Southeast Asia border trade status)
+  - **India, Pakistan, Syria, Colombia, Haiti, and Nigeria** (Manually mapped and fully populated with real-world 2024–2025 statistics).
+- **Premium Glassmorphic UI System**:
+  - Soft transparent obsidian card layers (`backdrop-filter`) with glowing border gradients and micro-hover lifting transitions.
+  - Full responsive harmonization across both **Light Theme** (Slate-50) and **Dark Theme** (Obsidian).
+  - Modern typography pairing standard `Inter` with `JetBrains Mono` for precise data metrics.
+- **Dynamic Watchlist Indicators**: Pill-shaped status badges featuring animated internal glowing dots that replicate hardware status lights.
+- **Pulsing Map Markers & Popups**: A custom world map featuring pulsing radial hotspot markers and sleek hover overlays.
+- **Fuel Price ML Predictions**: Future prediction models generated on-the-fly by the Python backend and visualized with interactive line charts (Brent Crude, WTI, Natural Gas, LNG).
+- **Humanitarian & Infrastructure Intelligence**: Dedicated sections tracking internally displaced peoples, deficiency checklists, and population challenges with sliding animated layouts.
 
 ---
 
-## Getting Started
+## 🛠️ Tech Stack
+
+- **Frontend**: React, Vite, React Router, Recharts, Mapbox/MapLibre GL, Lucide Icons, Vanilla CSS
+- **Backend**: Python, FastAPI, Uvicorn, Pydantic, Scikit-learn (ML predictions)
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-You need the following installed on your machine:
-- **Node.js** (v16 or higher)
-- **Python** (v3.9 or higher)
-- **npm** (comes with Node.js) or `yarn`
+- **Node.js** (v18 or higher)
+- **Python** (v3.10 or higher)
+- **npm** (comes with Node.js)
 
 ### 1. Running the Python Backend
 
-The backend serves API endpoints for the Energy Monitor, News Center, and Fuel Price Predictions.
+The Python API serves conflict data, news feeds, and machine learning price forecasts.
 
-1. Open a terminal and navigate to the `backend` folder:
+1. Open a terminal and navigate to the project directory:
    ```bash
-   cd backend
+   # Make sure you are in the root directory where api/ is located
+   cd GeoLet-main
    ```
-2. Create and activate a Python virtual environment (optional but recommended):
+2. Create and activate a Python virtual environment:
    ```bash
-   # Windows
+   # Windows PowerShell
    python -m venv venv
    .\venv\Scripts\activate
    
@@ -45,46 +56,43 @@ The backend serves API endpoints for the Energy Monitor, News Center, and Fuel P
    python3 -m venv venv
    source venv/bin/activate
    ```
-3. Install the required dependencies:
+3. Install required backend libraries:
    ```bash
    pip install -r requirements.txt
    ```
-4. Start the FastAPI server:
+4. Run the Uvicorn dev server:
    ```bash
-   uvicorn main:app --reload --port 8000
+   uvicorn api.index:app --reload --port 8000
    ```
-The backend API will now be running at `http://localhost:8000`.
+The backend API is now active at `http://localhost:8000`.
 
 ### 2. Running the React Frontend
 
-The frontend powers the visual dashboard and connects to your Python API.
+The Vite frontend serves the interactive React shell.
 
-1. Open a **new** terminal window and navigate to the root directory of the project:
+1. Open a **new** terminal window and navigate to the root directory:
    ```bash
-   cd GeoLet
+   cd GeoLet-main
    ```
-2. Install the Node modules:
+2. Install dependencies:
    ```bash
    npm install
    ```
-3. Start the Vite development server:
+3. Boot the frontend:
    ```bash
    npm run dev
    ```
-4. Visit `http://localhost:5173/` in your browser.
+4. Access the interface in your browser at `http://localhost:5173/`.
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
-- `/src`: Contains the React frontend application (components, pages, styles).
-- `/backend`: Contains the Python FastAPI backend (`main.py`) and dependencies.
-- `package.json`: Frontend package configurations.
-- `vite.config.js`: Vite build configuration.
-
-## Available Scripts (Frontend)
-
-- `npm run dev`: Starts the development server.
-- `npm run build`: Builds the app for production into the `dist/` folder.
-- `npm run lint`: Runs ESLint to check for code quality and syntax errors.
-- `npm run preview`: Previews the built production app locally.
+- `/src` — React frontend codebase (components, pages, page hooks, custom styles).
+  - `/src/components` — Shared UI elements (sidebar, map, dashboard panels).
+  - `/src/pages` — Core route pages (Dashboard, Country Detail, Energy, News).
+- `/api` — Python FastAPI backend controller, models, and JSON databases.
+  - `/api/data` — Central data repositories (conflicts, shipping routes, fuel pricing).
+- `package.json` — Frontend package scripts and libraries.
+- `vite.config.js` — Vite compiling configuration.
+- `README.md` — Project layout documentation.
