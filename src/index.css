@@ -626,7 +626,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent-color, var(--accent));
   border-radius: var(--radius-md);
   padding: 22px 24px;
   display: flex;
@@ -638,11 +637,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   box-shadow: var(--shadow-sm);
 }
 
+.stat-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 3.5px;
+  background: var(--accent-color, var(--accent));
+  border-radius: 0 3px 3px 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .stat-card:hover {
   border-color: var(--border-strong);
-  border-left-color: var(--accent-color, var(--accent));
   transform: translateY(-3px);
   box-shadow: var(--shadow-md), 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card:hover::before {
+  transform: scaleY(1.1);
 }
 
 .stat-card-label {
@@ -1301,11 +1315,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 16px 20px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
   border-radius: var(--radius-md);
   font-size: 12px;
   color: var(--text-secondary);
   line-height: 1.65;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+}
+
+.challenge-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3.5px;
+  background: var(--accent);
+  border-radius: 0 3px 3px 0;
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -1313,6 +1339,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transform: translateX(6px);
   border-color: var(--accent-border);
   box-shadow: var(--shadow-md), 0 0 15px rgba(225, 29, 72, 0.04);
+}
+
+.challenge-item:hover::before {
+  transform: scaleY(1.1);
 }
 
 .challenge-num {
