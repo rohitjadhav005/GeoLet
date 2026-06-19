@@ -60,6 +60,10 @@
   --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
 
+  --accent-blue: #3b82f6;
+  --accent-blue-dim: rgba(59, 130, 246, 0.1);
+  --accent-blue-border: rgba(59, 130, 246, 0.25);
+
   --sidebar-bg: #07080c;
   --sidebar-border: rgba(255, 255, 255, 0.06);
 
@@ -127,6 +131,10 @@
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.03);
   --shadow-md: 0 8px 30px rgba(15, 23, 42, 0.06);
   --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.1);
+
+  --accent-blue: #2563eb;
+  --accent-blue-dim: rgba(37, 99, 235, 0.08);
+  --accent-blue-border: rgba(37, 99, 235, 0.2);
 
   --sidebar-bg: #ffffff;
   --sidebar-border: rgba(15, 23, 42, 0.06);
@@ -849,6 +857,23 @@ button {
   min-width: 0;
 
   box-shadow: var(--shadow-md);
+}
+
+/* Business-style card used by EnergyMonitor and NewsCenter pages */
+.card-business {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card-business:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .panel-header {

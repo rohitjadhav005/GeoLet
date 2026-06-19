@@ -52,7 +52,7 @@ export default function EnergyMonitor() {
         </div>
       </div>
 
-      <div style={{ padding: "32px 24px", color: "var(--text-muted)" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
         {loading ? (
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "40vh" }}>
             <div style={{ animation: "pulse 2s infinite", opacity: 0.6 }}>Synchronizing with Global Grid...</div>

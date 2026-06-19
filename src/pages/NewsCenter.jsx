@@ -39,7 +39,7 @@ export default function NewsCenter() {
         </div>
       </div>
 
-      <div style={{ padding: "32px 24px", color: "var(--text-muted)" }}>
+      <div>
         {loading ? (
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "40vh" }}>
             <div style={{ animation: "pulse 2s infinite", opacity: 0.6 }}>Fetching Intelligence Feeds...</div>
