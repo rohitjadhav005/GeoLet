@@ -42,7 +42,7 @@ def get_energy_data():
 
 @app.get("/api/news")
 def get_news_data():
-    NEWS_API_KEY = os.getenv("320a2fabf32241a2a3c05d5ed94a3c7a")
+    NEWS_API_KEY = os.getenv("NEWS_API_KEY")
     
     # Live API Integration (Requires NEWS_API_KEY)
     if NEWS_API_KEY:
